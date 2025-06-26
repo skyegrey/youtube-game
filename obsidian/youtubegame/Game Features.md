@@ -1,0 +1,7 @@
+- [ ] Create an inventory UI
+	- [ ] Click e on the keyboard to bring up the inventory
+- [ ] Create slots in the inventory
+- [ ] Create a hat slot
+- [ ] Create the fedora item
+- [x] Create the hat sprite on character
+- [ ] Create tooltips

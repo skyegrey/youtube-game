@@ -1,0 +1,160 @@
+[gd_scene load_steps=14 format=4 uid="uid://c7pwekakxgqp0"]
+
+[ext_resource type="Script" uid="uid://cm6f7nmyhwfx2" path="res://Scenes/inventory.gd" id="1_d1ilt"]
+[ext_resource type="Texture2D" uid="uid://cq0t33cutoal2" path="res://Assets/Sprite-0001.png" id="1_jjvhh"]
+[ext_resource type="Script" uid="uid://ckayu2pxf1dpb" path="res://Scripts/character_body_2d.gd" id="2_kry3j"]
+[ext_resource type="Texture2D" uid="uid://n73hm0gr2uum" path="res://Assets/little-guy.png" id="3_21xkr"]
+[ext_resource type="Texture2D" uid="uid://ch64oes5c8guc" path="res://Assets/Items/proximity-bananas-fedora.png" id="4_6bp64"]
+[ext_resource type="Texture2D" uid="uid://clv4ir2h1nr27" path="res://Assets/UI/modal-background.png" id="5_6bp64"]
+[ext_resource type="Script" uid="uid://bqj3ryl6tvutp" path="res://Scripts/ui.gd" id="5_344ge"]
+[ext_resource type="Texture2D" uid="uid://bgkv2ibpodqlb" path="res://Assets/UI/grey_panel.png" id="5_kry3j"]
+[ext_resource type="Script" uid="uid://be0qyan071tri" path="res://Scripts/inventory_control.gd" id="7_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://dyj6oelhl3q7f" path="res://Scenes/inventory_slot.tscn" id="9_ynf5e"]
+[ext_resource type="Texture2D" uid="uid://b3551dd4wlv6w" path="res://Assets/UI/hat-inventory-bg.png" id="10_hptm8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
+texture = ExtResource("1_jjvhh")
+texture_region_size = Vector2i(32, 16)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_h2yge"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(32, 16)
+sources/1 = SubResource("TileSetAtlasSource_0xm2m")
+
+[node name="Main" type="Node2D"]
+process_mode = 1
+
+[node name="Inventory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_d1ilt")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAATAAQAAQAAAAAAAAATAAMAAQAAAAAAAAATAAIAAQAAAAAAAAAUAAIAAQAAAAAAAAAVAAIAAQAAAAAAAAAVAAMAAQAAAAAAAAAVAAQAAQAAAAAAAAAUAAQAAQAAAAAAAAAUAAMAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_h2yge")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(578, 384)
+scale = Vector2(4, 4)
+script = ExtResource("2_kry3j")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("3_21xkr")
+metadata/_edit_lock_ = true
+
+[node name="Helm" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(0, -3)
+texture = ExtResource("4_6bp64")
+
+[node name="UI" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1200.0
+offset_bottom = 800.0
+script = ExtResource("5_344ge")
+
+[node name="ModalBackground" type="TextureRect" parent="UI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_6bp64")
+
+[node name="InventoryControl" type="Control" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 800.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_ynf5e")
+inventory_slots = null
+
+[node name="InventoryPanel" type="Control" parent="UI/InventoryControl"]
+self_modulate = Color(0.270588, 0.501961, 0.521569, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.5
+offset_top = -150.0
+offset_right = 287.5
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/InventoryControl/InventoryPanel"]
+self_modulate = Color(0.352941, 0.682353, 0.6, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_kry3j")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+metadata/_edit_lock_ = true
+
+[node name="CharacterPreview" type="Control" parent="UI/InventoryControl/InventoryPanel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="EquipmentSlots" type="Control" parent="UI/InventoryControl/InventoryPanel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="InventorySlot" parent="UI/InventoryControl/InventoryPanel/EquipmentSlots" instance=ExtResource("9_ynf5e")]
+layout_mode = 0
+offset_left = 350.5
+offset_top = 27.0
+offset_right = 425.5
+offset_bottom = 102.0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryControl/InventoryPanel/EquipmentSlots/InventorySlot"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Sprite2D" type="TextureRect" parent="UI/InventoryControl/InventoryPanel/EquipmentSlots/InventorySlot/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("10_hptm8")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryControl/InventoryPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 575.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="InvetorySlotsContainer" type="GridContainer" parent="UI/InventoryControl/InventoryPanel/MarginContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 7
+metadata/_edit_lock_ = true
