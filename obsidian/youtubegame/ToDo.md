@@ -14,6 +14,8 @@ Comment Features:
 
 Maintenance:
 - [ ] Cleanup Inventory slot / equipment slot scenes to have similar child scenes in prefab (i.e. 'ItemFrame' scene & 'Tooltip' scene)
+- [ ] Detach sword from character sprite, render sword as sprite on character
+- [ ] Sprite flipping when moving in multiple directions
 
 Bugs:
 - [ ] Fix tooltip flicker
