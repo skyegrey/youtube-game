@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Game Features.md",
+                "file": "ToDo.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Game Features"
+              "title": "ToDo"
             }
           }
         ]
@@ -170,6 +170,6 @@
   },
   "active": "a3928100190061b0",
   "lastOpenFiles": [
-    "Game Features.md"
+    "ToDo.md"
   ]
 }
