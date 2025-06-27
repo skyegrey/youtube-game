@@ -7,7 +7,7 @@ Comment Features:
 	- [ ] Add E to interact when near NPC
 	- [ ] Add dialogue pop up 
 	- [ ] Expand the ground a bit
-	- [ ] Camera follows player
+	- [x] Camera follows player
 - [x] Add a Fedora
 	- [x] Create Inventory
 		- [x] Create UI
