@@ -4,7 +4,7 @@ Comment Features:
 	- [x] Add NPC 
 	- [x] Remap inventory from E to ESC
 	- [x] Add interaction detection range
-	- [ ] Add E to interact when near NPC
+	- [x] Add E to interact when near NPC
 	- [ ] Add dialogue pop up 
 	- [ ] Expand the ground a bit
 	- [x] Camera follows player

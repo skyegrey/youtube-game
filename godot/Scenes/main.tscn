@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=4 uid="uid://c7pwekakxgqp0"]
+[gd_scene load_steps=18 format=4 uid="uid://c7pwekakxgqp0"]
 
 [ext_resource type="Script" uid="uid://cm6f7nmyhwfx2" path="res://Scripts/inventory.gd" id="1_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://cq0t33cutoal2" path="res://Assets/Sprite-0001.png" id="1_jjvhh"]
 [ext_resource type="Script" uid="uid://ckayu2pxf1dpb" path="res://Scripts/character_body_2d.gd" id="2_kry3j"]
 [ext_resource type="Texture2D" uid="uid://bpeahdbif3sor" path="res://Assets/NPCs/raccoon.png" id="3_6iyac"]
 [ext_resource type="Texture2D" uid="uid://n73hm0gr2uum" path="res://Assets/little-guy.png" id="3_21xkr"]
+[ext_resource type="Script" uid="uid://bhik3tkdp5kx7" path="res://Scenes/raccoon_npc.gd" id="3_fdnlq"]
 [ext_resource type="Texture2D" uid="uid://ch64oes5c8guc" path="res://Assets/Items/proximity-bananas-fedora.png" id="4_6bp64"]
 [ext_resource type="Texture2D" uid="uid://clv4ir2h1nr27" path="res://Assets/UI/modal-background.png" id="5_6bp64"]
 [ext_resource type="Script" uid="uid://bqj3ryl6tvutp" path="res://Scripts/ui.gd" id="5_344ge"]
@@ -25,9 +26,10 @@ tile_size = Vector2i(32, 16)
 sources/1 = SubResource("TileSetAtlasSource_0xm2m")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6iyac"]
+radius = 40.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdnlq"]
-radius = 4.0
+radius = 16.0
 
 [node name="Main" type="Node2D"]
 process_mode = 1
@@ -43,22 +45,36 @@ tile_set = SubResource("TileSet_h2yge")
 
 [node name="RaccoonNPC" type="Node2D" parent="."]
 position = Vector2(120, -42)
-scale = Vector2(4, 4)
+script = ExtResource("3_fdnlq")
 
 [node name="Sprite2D" type="Sprite2D" parent="RaccoonNPC"]
+scale = Vector2(4, 4)
 texture = ExtResource("3_6iyac")
 metadata/_edit_lock_ = true
 
 [node name="InteractableArea" type="Area2D" parent="RaccoonNPC"]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RaccoonNPC/InteractableArea"]
 shape = SubResource("CircleShape2D_6iyac")
 
+[node name="InteractTooltip" type="RichTextLabel" parent="RaccoonNPC"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -19.0
+offset_top = -4.0
+offset_right = 13.0
+offset_bottom = 4.0
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[center][color=faf36b]'E'"
+scroll_active = false
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-scale = Vector2(4, 4)
+collision_mask = 2
 script = ExtResource("2_kry3j")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(4, 4)
 texture = ExtResource("3_21xkr")
 offset = Vector2(0, 1)
 metadata/_edit_lock_ = true
@@ -66,13 +82,17 @@ metadata/_edit_lock_ = true
 [node name="Helm" type="Sprite2D" parent="CharacterBody2D"]
 visible = false
 position = Vector2(0, -3)
+scale = Vector2(4, 4)
 texture = ExtResource("4_6bp64")
 offset = Vector2(0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(4, 4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="InteractablesDetectionArea" type="Area2D" parent="CharacterBody2D"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/InteractablesDetectionArea"]
 shape = SubResource("CircleShape2D_fdnlq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
