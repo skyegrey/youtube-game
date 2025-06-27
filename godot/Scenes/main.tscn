@@ -69,6 +69,38 @@ bbcode_enabled = true
 text = "[center][color=faf36b]'E'"
 scroll_active = false
 
+[node name="DialougeBox" type="NinePatchRect" parent="RaccoonNPC"]
+visible = false
+self_modulate = Color(0.352941, 0.682353, 0.6, 1)
+offset_left = 3.0
+offset_top = -62.0
+offset_right = 85.0
+offset_bottom = -13.0
+texture = ExtResource("5_kry3j")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="RaccoonNPC/DialougeBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RaccoonNPC/DialougeBox/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[color=faf36b]Use WASD to move around!"
+scroll_active = false
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_mask = 2
 script = ExtResource("2_kry3j")

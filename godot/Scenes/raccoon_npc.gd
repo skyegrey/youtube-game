@@ -3,6 +3,7 @@ class_name NPC extends Node2D
 # Children Refs
 @onready var interact_tooltip = $InteractTooltip
 @onready var interactable_area = $InteractableArea
+@onready var dialouge_box = $DialougeBox
 
 # Props
 @onready var tooltip_showing_y_value: float = -22.0
@@ -27,3 +28,8 @@ func _hide_interact_key(area: Area2D):
 	tween.tween_property(interact_tooltip, "position:y", 
 	tooltip_hiding_y_value, tooltip_animation_time)
 	tween.tween_property(interact_tooltip, "self_modulate:a", 0, tooltip_animation_time)
+	dialouge_box.visible = false
+
+func interact():
+	interact_tooltip.self_modulate.a = 0
+	dialouge_box.visible = true
