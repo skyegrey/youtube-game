@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkk6r8swua1dq"
+path="res://.godot/imported/UI Button 1.mp3-e39fb7b26c036a80853b93e19d9a62aa.mp3str"
+
+[deps]
+
+source_file="res://Assets/sfx/UI Button 1.mp3"
+dest_files=["res://.godot/imported/UI Button 1.mp3-e39fb7b26c036a80853b93e19d9a62aa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -14,7 +14,7 @@ func _ready():
 	interactables_detection_area.area_exited.connect(_remove_interactable)
 
 func _physics_process(delta):
-	if interactable && Input.is_action_pressed("ui_interact"):
+	if interactable && Input.is_action_just_pressed("ui_interact"):
 		interactable.interact()
 		return
 
