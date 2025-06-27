@@ -2,8 +2,8 @@
 Comment Features:
 - [ ] Add a talking raccoon that guides the player
 	- [x] Add NPC 
-	- [ ] Remap inventory from E to ESC
-	- [ ] Add interaction detection range
+	- [x] Remap inventory from E to ESC
+	- [x] Add interaction detection range
 	- [ ] Add E to interact when near NPC
 	- [ ] Add dialogue pop up 
 	- [ ] Expand the ground a bit

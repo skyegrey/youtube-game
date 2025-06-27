@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c7pwekakxgqp0"]
+[gd_scene load_steps=17 format=4 uid="uid://c7pwekakxgqp0"]
 
 [ext_resource type="Script" uid="uid://cm6f7nmyhwfx2" path="res://Scripts/inventory.gd" id="1_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://cq0t33cutoal2" path="res://Assets/Sprite-0001.png" id="1_jjvhh"]
@@ -24,6 +24,11 @@ tile_layout = 5
 tile_size = Vector2i(32, 16)
 sources/1 = SubResource("TileSetAtlasSource_0xm2m")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6iyac"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fdnlq"]
+radius = 4.0
+
 [node name="Main" type="Node2D"]
 process_mode = 1
 
@@ -44,21 +49,31 @@ scale = Vector2(4, 4)
 texture = ExtResource("3_6iyac")
 metadata/_edit_lock_ = true
 
+[node name="InteractableArea" type="Area2D" parent="RaccoonNPC"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RaccoonNPC/InteractableArea"]
+shape = SubResource("CircleShape2D_6iyac")
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 scale = Vector2(4, 4)
 script = ExtResource("2_kry3j")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("3_21xkr")
+offset = Vector2(0, 1)
 metadata/_edit_lock_ = true
 
 [node name="Helm" type="Sprite2D" parent="CharacterBody2D"]
 visible = false
 position = Vector2(0, -3)
 texture = ExtResource("4_6bp64")
+offset = Vector2(0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_fdnlq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
