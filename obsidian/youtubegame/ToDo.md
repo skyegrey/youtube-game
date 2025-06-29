@@ -1,5 +1,15 @@
 
 Comment Features:
+- [ ] Add a boss slime with 50hp that jumps & gets stunned when landing
+	- [ ] Implement the Enemy Node
+	- [ ] Give the boss 50 hp
+		- [ ] Create a healthbar
+			- [ ] Progress bar
+			- [ ] Text
+	- [ ] Boss tracks player
+	- [ ] Jump sprite
+	- [ ] Stun on jump landing
+	- [ ] Stun sprite
 - [x] Add a talking raccoon that guides the player
 	- [x] Add NPC 
 	- [x] Remap inventory from E to ESC
