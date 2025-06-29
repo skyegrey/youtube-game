@@ -1,6 +1,6 @@
 
 Comment Features:
-- [ ] Add a talking raccoon that guides the player
+- [x] Add a talking raccoon that guides the player
 	- [x] Add NPC 
 	- [x] Remap inventory from E to ESC
 	- [x] Add interaction detection range
@@ -8,8 +8,8 @@ Comment Features:
 	- [x] Add dialogue pop up 
 	- [x] Expand the ground a bit
 	- [x] Camera follows player
-	- [ ] Add typewriter effect
-	- [ ] Add typewriter noise
+	- [x] Add typewriter effect
+	- [x] Add typewriter noise
 - [x] Add a Fedora
 	- [x] Create Inventory
 		- [x] Create UI

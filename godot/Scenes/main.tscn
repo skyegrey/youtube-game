@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://c7pwekakxgqp0"]
+[gd_scene load_steps=20 format=4 uid="uid://c7pwekakxgqp0"]
 
 [ext_resource type="Script" uid="uid://cm6f7nmyhwfx2" path="res://Scripts/inventory.gd" id="1_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://cq0t33cutoal2" path="res://Assets/Sprite-0001.png" id="1_jjvhh"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://clv4ir2h1nr27" path="res://Assets/UI/modal-background.png" id="5_6bp64"]
 [ext_resource type="Script" uid="uid://bqj3ryl6tvutp" path="res://Scripts/ui.gd" id="5_344ge"]
 [ext_resource type="Texture2D" uid="uid://bgkv2ibpodqlb" path="res://Assets/UI/grey_panel.png" id="5_kry3j"]
+[ext_resource type="AudioStream" uid="uid://bkk6r8swua1dq" path="res://Assets/sfx/UI Button 1.mp3" id="6_jkdf5"]
 [ext_resource type="Script" uid="uid://be0qyan071tri" path="res://Scripts/inventory_control.gd" id="7_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://bq5eo010b34jk" path="res://Assets/character-sprite.png" id="10_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://b2lesre7doh7r" path="res://Scenes/equipment_slot.tscn" id="10_hptm8"]
@@ -27,6 +28,11 @@ sources/1 = SubResource("TileSetAtlasSource_0xm2m")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6iyac"]
 radius = 40.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wsu2k"]
+random_pitch = 1.5
+streams_count = 1
+stream_0/stream = ExtResource("6_jkdf5")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdnlq"]
 radius = 16.0
@@ -94,12 +100,15 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="RaccoonNPC/DialougeBox/MarginContainer"]
+[node name="Dialouge" type="RichTextLabel" parent="RaccoonNPC/DialougeBox/MarginContainer"]
 layout_mode = 2
+theme_override_colors/default_color = Color(0.980392, 0.952941, 0.419608, 1)
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
-text = "[color=faf36b]Use WASD to move around!"
 scroll_active = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RaccoonNPC"]
+stream = SubResource("AudioStreamRandomizer_wsu2k")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_mask = 2
@@ -112,8 +121,7 @@ offset = Vector2(0, 1)
 metadata/_edit_lock_ = true
 
 [node name="Helm" type="Sprite2D" parent="CharacterBody2D"]
-visible = false
-position = Vector2(0, -3)
+position = Vector2(0, -12)
 scale = Vector2(4, 4)
 texture = ExtResource("4_6bp64")
 offset = Vector2(0, 1)

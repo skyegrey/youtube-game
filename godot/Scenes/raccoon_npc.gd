@@ -4,6 +4,8 @@ class_name NPC extends Node2D
 @onready var interact_tooltip = $InteractTooltip
 @onready var interactable_area = $InteractableArea
 @onready var dialouge_box = $DialougeBox
+@onready var dialouge = $DialougeBox/MarginContainer/Dialouge
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 # Props
 @onready var tooltip_showing_y_value: float = -22.0
@@ -29,7 +31,17 @@ func _hide_interact_key(area: Area2D):
 	tooltip_hiding_y_value, tooltip_animation_time)
 	tween.tween_property(interact_tooltip, "self_modulate:a", 0, tooltip_animation_time)
 	dialouge_box.visible = false
+	dialouge.text = ""
 
 func interact():
 	interact_tooltip.self_modulate.a = 0
+	_display_dialouge_box()
+
+func _display_dialouge_box():
 	dialouge_box.visible = true
+	var bb_codes = ""
+	var completed_dialouge = "Use WASD to move around!"
+	for character: String in completed_dialouge:
+		dialouge.text += character
+		audio_stream_player_2d.play()
+		await get_tree().create_timer(.035).timeout
