@@ -1,7 +1,7 @@
 
 Comment Features:
 - [ ] Add a boss slime with 50hp that jumps & gets stunned when landing
-	- [ ] Implement the Enemy Node
+	- [x] Implement the Enemy Node
 	- [ ] Give the boss 50 hp
 		- [ ] Create a healthbar
 			- [ ] Progress bar
