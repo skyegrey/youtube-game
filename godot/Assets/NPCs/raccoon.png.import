@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wgutcchxr0xl"
-path="res://.godot/imported/grey_box.png-d22618f4eda45a172167449048b87c33.ctex"
+uid="uid://bpeahdbif3sor"
+path="res://.godot/imported/raccoon.png-c4b4dbd2c8666f00ed707258a7fa985f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/grey_box.png"
-dest_files=["res://.godot/imported/grey_box.png-d22618f4eda45a172167449048b87c33.ctex"]
+source_file="res://Assets/NPCs/raccoon.png"
+dest_files=["res://.godot/imported/raccoon.png-c4b4dbd2c8666f00ed707258a7fa985f.ctex"]
 
 [params]
 
