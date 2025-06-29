@@ -68,8 +68,8 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD+/wAAAQAAAAAAAAD+////AQAAAAAAAAD/////AQAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAD//wEAAQAAAAAAAAD+/wEAAQAAAAAAAAD//wAAAQAAAAAAAAD+/wIAAQAAAAAAAAD//wIAAQAAAAAAAAABAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAABAAIAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAABAP7/AQAAAAAAAAAAAP7/AQAAAAAAAAD///7/AQAAAAAAAAD+//7/AQAAAAAAAAD9//7/AQAAAAAAAAD9////AQAAAAAAAAD9/wAAAQAAAAAAAAD9/wEAAQAAAAAAAAD9/wIAAQAAAAAAAAD8/wMAAQAAAAAAAAD8/wIAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wAAAQAAAAAAAAD8////AQAAAAAAAAD8//7/AQAAAAAAAAD8//3/AQAAAAAAAAD9//3/AQAAAAAAAAD+//3/AQAAAAAAAAD///3/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP3/AQAAAAAAAAACAP3/AQAAAAAAAAACAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAABAAMAAQAAAAAAAAAAAAMAAQAAAAAAAAD//wMAAQAAAAAAAAD+/wMAAQAAAAAAAAD9/wMAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_h2yge")
 
-[node name="SlimeBoss" type="Node2D" parent="."]
-position = Vector2(80, -183)
+[node name="SlimeBoss" type="RigidBody2D" parent="."]
+position = Vector2(100, 100)
 script = ExtResource("3_k12tt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SlimeBoss"]
@@ -139,29 +139,29 @@ scroll_active = false
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RaccoonNPC"]
 stream = SubResource("AudioStreamRandomizer_wsu2k")
 
-[node name="PlayerCharacter" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_mask = 2
 script = ExtResource("2_kry3j")
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayerCharacter"]
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 scale = Vector2(4, 4)
 texture = ExtResource("3_21xkr")
 offset = Vector2(0, 1)
 metadata/_edit_lock_ = true
 
-[node name="Helm" type="Sprite2D" parent="PlayerCharacter"]
+[node name="Helm" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(0, -12)
 scale = Vector2(4, 4)
 texture = ExtResource("4_6bp64")
 offset = Vector2(0, 1)
 
-[node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(4, 4)
 
-[node name="InteractablesDetectionArea" type="Area2D" parent="PlayerCharacter"]
+[node name="InteractablesDetectionArea" type="Area2D" parent="CharacterBody2D"]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/InteractablesDetectionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/InteractablesDetectionArea"]
 shape = SubResource("CircleShape2D_fdnlq")
 
 [node name="UILayer" type="CanvasLayer" parent="."]

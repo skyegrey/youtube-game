@@ -6,7 +6,7 @@ Comment Features:
 		- [x] Create a healthbar
 			- [x] Progress bar
 			- [x] Text
-	- [ ] Boss tracks player
+	- [x] Boss tracks player
 	- [ ] Progress bar tracks hp correctly
 	- [ ] Jump sprite
 	- [ ] Stun on jump landing
@@ -39,6 +39,7 @@ Maintenance:
 - [ ] Cleanup Inventory slot / equipment slot scenes to have similar child scenes in prefab (i.e. 'ItemFrame' scene & 'Tooltip' scene)
 - [ ] Detach sword from character sprite, render sword as sprite on character
 - [ ] Sprite flipping when moving in multiple directions
+- [ ] Downgrade player from characterbody2d to node2d (alt. promote enemy / npc to character body)
 
 Bugs:
 - [ ] Fix tooltip flicker
