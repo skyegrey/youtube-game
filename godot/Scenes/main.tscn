@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://c7pwekakxgqp0"]
+[gd_scene load_steps=44 format=4 uid="uid://c7pwekakxgqp0"]
 
 [ext_resource type="Script" uid="uid://cm6f7nmyhwfx2" path="res://Scripts/inventory.gd" id="1_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://cq0t33cutoal2" path="res://Assets/Sprite-0001.png" id="1_jjvhh"]
@@ -11,11 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://ch64oes5c8guc" path="res://Assets/Items/proximity-bananas-fedora.png" id="4_6bp64"]
 [ext_resource type="Texture2D" uid="uid://clv4ir2h1nr27" path="res://Assets/UI/modal-background.png" id="5_6bp64"]
 [ext_resource type="Script" uid="uid://bqj3ryl6tvutp" path="res://Scripts/ui.gd" id="5_344ge"]
+[ext_resource type="Texture2D" uid="uid://bncew2w151hbk" path="res://Assets/SlimeBoss/jump.png" id="5_b3802"]
 [ext_resource type="Texture2D" uid="uid://bgkv2ibpodqlb" path="res://Assets/UI/grey_panel.png" id="5_kry3j"]
+[ext_resource type="Texture2D" uid="uid://xf7ohegfn540" path="res://Assets/SlimeBoss/stunned.png" id="6_fevyy"]
 [ext_resource type="AudioStream" uid="uid://bkk6r8swua1dq" path="res://Assets/sfx/UI Button 1.mp3" id="6_jkdf5"]
 [ext_resource type="Script" uid="uid://be0qyan071tri" path="res://Scripts/inventory_control.gd" id="7_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://bq5eo010b34jk" path="res://Assets/character-sprite.png" id="10_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://b2lesre7doh7r" path="res://Scenes/equipment_slot.tscn" id="10_hptm8"]
+[ext_resource type="Script" uid="uid://drn764q21o03q" path="res://Scripts/boss_info_controll.gd" id="17_h1bgf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
 texture = ExtResource("1_jjvhh")
@@ -32,6 +35,70 @@ sources/1 = SubResource("TileSetAtlasSource_0xm2m")
 atlas = ExtResource("3_wsu2k")
 region = Rect2(0, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fevyy"]
+atlas = ExtResource("5_b3802")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hibaj"]
+atlas = ExtResource("5_b3802")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdsj5"]
+atlas = ExtResource("5_b3802")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee4r6"]
+atlas = ExtResource("5_b3802")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt3je"]
+atlas = ExtResource("5_b3802")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pmx8"]
+atlas = ExtResource("5_b3802")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u50mg"]
+atlas = ExtResource("5_b3802")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbgmd"]
+atlas = ExtResource("5_b3802")
+region = Rect2(224, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w6v2"]
+atlas = ExtResource("5_b3802")
+region = Rect2(256, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ueoa1"]
+atlas = ExtResource("5_b3802")
+region = Rect2(288, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vcvc"]
+atlas = ExtResource("5_b3802")
+region = Rect2(320, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k868"]
+atlas = ExtResource("5_b3802")
+region = Rect2(352, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpc6h"]
+atlas = ExtResource("6_fevyy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kltya"]
+atlas = ExtResource("6_fevyy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e08e2"]
+atlas = ExtResource("6_fevyy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neg2b"]
+atlas = ExtResource("6_fevyy")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_h1bgf"]
 animations = [{
 "frames": [{
@@ -40,6 +107,64 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fevyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hibaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdsj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee4r6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt3je")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pmx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u50mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbgmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w6v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ueoa1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vcvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7k868")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpc6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kltya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e08e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neg2b")
+}],
+"loop": true,
+"name": &"stuned",
 "speed": 5.0
 }]
 
@@ -75,8 +200,12 @@ script = ExtResource("3_k12tt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SlimeBoss"]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_h1bgf")
-animation = &"idle"
+animation = &"moving"
+autoplay = "stuned"
 metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="SlimeBoss"]
+autostart = true
 
 [node name="RaccoonNPC" type="Node2D" parent="."]
 position = Vector2(120, -42)
@@ -322,6 +451,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="BossInfoControl" type="MarginContainer" parent="UILayer/UI"]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -334,25 +464,24 @@ theme_override_constants/margin_left = 300
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 300
 theme_override_constants/margin_bottom = 15
+script = ExtResource("17_h1bgf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UILayer/UI/BossInfoControl"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UILayer/UI/BossInfoControl/VBoxContainer"]
+[node name="BossName" type="RichTextLabel" parent="UILayer/UI/BossInfoControl/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
 text = "[center]Boss Slime"
 fit_content = true
 
-[node name="ProgressBar" type="ProgressBar" parent="UILayer/UI/BossInfoControl/VBoxContainer"]
+[node name="HPBar" type="ProgressBar" parent="UILayer/UI/BossInfoControl/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-tooltip_text = "askldfjalskdjf"
 theme = SubResource("Theme_wsu2k")
-value = 75.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="UILayer/UI/BossInfoControl/VBoxContainer/ProgressBar"]
+[node name="HPLabel" type="Label" parent="UILayer/UI/BossInfoControl/VBoxContainer/HPBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -7,10 +7,10 @@ Comment Features:
 			- [x] Progress bar
 			- [x] Text
 	- [x] Boss tracks player
-	- [ ] Progress bar tracks hp correctly
-	- [ ] Jump sprite
-	- [ ] Stun on jump landing
-	- [ ] Stun sprite
+	- [x] Progress bar tracks hp correctly
+	- [x] Jump sprite
+	- [x] Stun on jump landing
+	- [x] Stun sprite
 	- [ ] Progress bar coloring
 	- [ ] Progress bar texturing
 - [x] Add a talking raccoon that guides the player
