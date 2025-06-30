@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://c7pwekakxgqp0"]
+[gd_scene load_steps=40 format=4 uid="uid://c7pwekakxgqp0"]
 
 [ext_resource type="Script" uid="uid://cm6f7nmyhwfx2" path="res://Scripts/inventory.gd" id="1_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://cq0t33cutoal2" path="res://Assets/Sprite-0001.png" id="1_jjvhh"]
@@ -11,9 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://ch64oes5c8guc" path="res://Assets/Items/proximity-bananas-fedora.png" id="4_6bp64"]
 [ext_resource type="Texture2D" uid="uid://clv4ir2h1nr27" path="res://Assets/UI/modal-background.png" id="5_6bp64"]
 [ext_resource type="Script" uid="uid://bqj3ryl6tvutp" path="res://Scripts/ui.gd" id="5_344ge"]
-[ext_resource type="Texture2D" uid="uid://bncew2w151hbk" path="res://Assets/SlimeBoss/jump.png" id="5_b3802"]
+[ext_resource type="Texture2D" uid="uid://bmvyq7r2yp3po" path="res://Assets/SlimeBoss/sprite-sheet-full.png" id="5_b3802"]
 [ext_resource type="Texture2D" uid="uid://bgkv2ibpodqlb" path="res://Assets/UI/grey_panel.png" id="5_kry3j"]
-[ext_resource type="Texture2D" uid="uid://xf7ohegfn540" path="res://Assets/SlimeBoss/stunned.png" id="6_fevyy"]
 [ext_resource type="AudioStream" uid="uid://bkk6r8swua1dq" path="res://Assets/sfx/UI Button 1.mp3" id="6_jkdf5"]
 [ext_resource type="Script" uid="uid://be0qyan071tri" path="res://Scripts/inventory_control.gd" id="7_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://bq5eo010b34jk" path="res://Assets/character-sprite.png" id="10_d1ilt"]
@@ -31,73 +30,69 @@ tile_layout = 5
 tile_size = Vector2i(32, 16)
 sources/1 = SubResource("TileSetAtlasSource_0xm2m")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6iyac"]
+radius = 40.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wsu2k"]
+random_pitch = 1.5
+streams_count = 1
+stream_0/stream = ExtResource("6_jkdf5")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_k12tt"]
 atlas = ExtResource("3_wsu2k")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fevyy"]
 atlas = ExtResource("5_b3802")
-region = Rect2(0, 0, 32, 48)
+region = Rect2(0, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hibaj"]
 atlas = ExtResource("5_b3802")
-region = Rect2(32, 0, 32, 48)
+region = Rect2(32, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pdsj5"]
 atlas = ExtResource("5_b3802")
-region = Rect2(64, 0, 32, 48)
+region = Rect2(64, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ee4r6"]
 atlas = ExtResource("5_b3802")
-region = Rect2(96, 0, 32, 48)
+region = Rect2(96, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gt3je"]
 atlas = ExtResource("5_b3802")
-region = Rect2(128, 0, 32, 48)
+region = Rect2(128, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3pmx8"]
 atlas = ExtResource("5_b3802")
-region = Rect2(160, 0, 32, 48)
+region = Rect2(160, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u50mg"]
 atlas = ExtResource("5_b3802")
-region = Rect2(192, 0, 32, 48)
+region = Rect2(192, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cbgmd"]
 atlas = ExtResource("5_b3802")
-region = Rect2(224, 0, 32, 48)
+region = Rect2(224, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1w6v2"]
 atlas = ExtResource("5_b3802")
-region = Rect2(256, 0, 32, 48)
+region = Rect2(256, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ueoa1"]
 atlas = ExtResource("5_b3802")
-region = Rect2(288, 0, 32, 48)
+region = Rect2(288, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6vcvc"]
 atlas = ExtResource("5_b3802")
-region = Rect2(320, 0, 32, 48)
+region = Rect2(320, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7k868"]
 atlas = ExtResource("5_b3802")
-region = Rect2(352, 0, 32, 48)
+region = Rect2(352, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hpc6h"]
-atlas = ExtResource("6_fevyy")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kltya"]
-atlas = ExtResource("6_fevyy")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e08e2"]
-atlas = ExtResource("6_fevyy")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_neg2b"]
-atlas = ExtResource("6_fevyy")
-region = Rect2(96, 0, 32, 32)
+atlas = ExtResource("5_b3802")
+region = Rect2(384, 0, 32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h1bgf"]
 animations = [{
@@ -136,7 +131,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1w6v2")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 9.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ueoa1")
 }, {
@@ -145,36 +145,14 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7k868")
-}],
-"loop": true,
-"name": &"moving",
-"speed": 5.0
 }, {
-"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hpc6h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kltya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e08e2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_neg2b")
 }],
-"loop": true,
+"loop": false,
 "name": &"stuned",
-"speed": 5.0
+"speed": 9.0
 }]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_6iyac"]
-radius = 40.0
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wsu2k"]
-random_pitch = 1.5
-streams_count = 1
-stream_0/stream = ExtResource("6_jkdf5")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdnlq"]
 radius = 16.0
@@ -183,29 +161,17 @@ radius = 16.0
 
 [node name="Main" type="Node2D"]
 process_mode = 1
+y_sort_enabled = true
 
 [node name="Inventory" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_d1ilt")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -1
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD+/wAAAQAAAAAAAAD+////AQAAAAAAAAD/////AQAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAD//wEAAQAAAAAAAAD+/wEAAQAAAAAAAAD//wAAAQAAAAAAAAD+/wIAAQAAAAAAAAD//wIAAQAAAAAAAAABAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAABAAIAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAABAP7/AQAAAAAAAAAAAP7/AQAAAAAAAAD///7/AQAAAAAAAAD+//7/AQAAAAAAAAD9//7/AQAAAAAAAAD9////AQAAAAAAAAD9/wAAAQAAAAAAAAD9/wEAAQAAAAAAAAD9/wIAAQAAAAAAAAD8/wMAAQAAAAAAAAD8/wIAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wAAAQAAAAAAAAD8////AQAAAAAAAAD8//7/AQAAAAAAAAD8//3/AQAAAAAAAAD9//3/AQAAAAAAAAD+//3/AQAAAAAAAAD///3/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP3/AQAAAAAAAAACAP3/AQAAAAAAAAACAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAABAAMAAQAAAAAAAAAAAAMAAQAAAAAAAAD//wMAAQAAAAAAAAD+/wMAAQAAAAAAAAD9/wMAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_h2yge")
-
-[node name="SlimeBoss" type="Node2D" parent="."]
-position = Vector2(80, -183)
-script = ExtResource("3_k12tt")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SlimeBoss"]
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_h1bgf")
-animation = &"moving"
-autoplay = "stuned"
-metadata/_edit_lock_ = true
-
-[node name="Timer" type="Timer" parent="SlimeBoss"]
-autostart = true
 
 [node name="RaccoonNPC" type="Node2D" parent="."]
 position = Vector2(120, -42)
@@ -268,7 +234,26 @@ scroll_active = false
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RaccoonNPC"]
 stream = SubResource("AudioStreamRandomizer_wsu2k")
 
+[node name="SlimeBoss" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(80, -183)
+script = ExtResource("3_k12tt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SlimeBoss"]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_h1bgf")
+animation = &"stuned"
+autoplay = "idle"
+frame = 3
+frame_progress = 1.0
+offset = Vector2(0, -19)
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="SlimeBoss"]
+autostart = true
+
 [node name="PlayerCharacter" type="CharacterBody2D" parent="."]
+y_sort_enabled = true
 collision_mask = 2
 script = ExtResource("2_kry3j")
 
@@ -279,13 +264,12 @@ offset = Vector2(0, 1)
 metadata/_edit_lock_ = true
 
 [node name="Helm" type="Sprite2D" parent="PlayerCharacter"]
-position = Vector2(0, -12)
 scale = Vector2(4, 4)
 texture = ExtResource("4_6bp64")
-offset = Vector2(0, 1)
+offset = Vector2(0, -2)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 
 [node name="InteractablesDetectionArea" type="Area2D" parent="PlayerCharacter"]
 collision_mask = 2

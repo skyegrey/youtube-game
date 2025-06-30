@@ -43,10 +43,9 @@ func _update_state(new_state: States):
 	state = new_state
 	_update_animation(new_state)
 
-func _stun(stun_duration: float):
+func _stun():
 	_update_state(States.STUNNED)
-	var stun_timer = get_tree().create_timer(stun_duration)
-	stun_timer.timeout.connect(_update_state.bind(States.IDLE))
+	animated_sprite_2d.animation_finished.connect(_update_state.bind(States.IDLE), CONNECT_ONE_SHOT)
 
 func _process(delta):
 	if state == States.STUNNED:
@@ -62,6 +61,6 @@ func _update_animation(new_state: States):
 	match new_state:
 		States.MOVING:
 			animated_sprite_2d.play("moving")
-			animated_sprite_2d.animation_looped.connect(_stun.bind(2))
+			animated_sprite_2d.animation_looped.connect(_stun, CONNECT_ONE_SHOT)
 		States.STUNNED:
 			animated_sprite_2d.play("stuned")
