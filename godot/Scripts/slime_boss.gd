@@ -8,6 +8,7 @@ enum States {IDLE, MOVING, STUNNED}
 # Child Refs
 @onready var timer = $Timer
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var attack_hitbox = $AttackHitbox
 
 # Properties
 @export var movement_speed: float = .065
@@ -22,6 +23,7 @@ signal took_damage
 
 func _ready():
 	current_hp = max_hp
+	attack_hitbox.area_entered.connect(_hit_player)
 
 func _take_damage(damage_amount: int):
 	current_hp -= damage_amount
@@ -39,9 +41,14 @@ func _update_state(new_state: States):
 	if new_state == state:
 		return
 	state = new_state
+	match state:
+		States.MOVING:
+			attack_hitbox.monitoring = false
+
 	_update_animation(new_state)
 
 func _stun():
+	attack_hitbox.monitoring = true
 	_update_state(States.STUNNED)
 	animated_sprite_2d.animation_finished.connect(_update_state.bind(States.IDLE), CONNECT_ONE_SHOT)
 
@@ -62,3 +69,6 @@ func _update_animation(new_state: States):
 			animated_sprite_2d.animation_looped.connect(_stun, CONNECT_ONE_SHOT)
 		States.STUNNED:
 			animated_sprite_2d.play("stuned")
+
+func _hit_player(player_area: Area2D):
+	player_area.get_parent().apply_squish()

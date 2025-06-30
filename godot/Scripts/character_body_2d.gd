@@ -17,14 +17,15 @@ func _physics_process(delta):
 	if interactable && Input.is_action_just_pressed("ui_interact"):
 		interactable.interact()
 		return
+	
+	if Input.is_action_just_pressed("debug_squish"):
+		_squish()
 
 	var movement_vector = Input.get_vector("ui_left", "ui_right", "ui_up", 
 	"ui_down")
 	if movement_vector != Vector2.ZERO:
 		velocity = movement_vector * player_speed
 		move_and_slide()
-	
-
 
 func _refresh_equipment_sprites():
 	helm.visible = true
@@ -34,3 +35,15 @@ func _set_interactable(interactable_area: Area2D):
 
 func _remove_interactable(interactable_area: Area2D):
 	interactable = null
+
+func apply_squish():
+	_squish()
+
+func _squish():
+	var squish_tween = get_tree().create_tween()
+	squish_tween.tween_property(self, "scale:y", .25, .15)
+	get_tree().create_timer(1).timeout.connect(_unsquish)
+
+func _unsquish():
+	var unsquish_tween = get_tree().create_tween()
+	unsquish_tween.tween_property(self, "scale:y", 1, .15)

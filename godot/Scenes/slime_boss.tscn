@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ds8n7330vwr4l"]
+[gd_scene load_steps=22 format=3 uid="uid://ds8n7330vwr4l"]
 
 [ext_resource type="Script" uid="uid://dkypki612pnwx" path="res://Scripts/slime_boss.gd" id="1_oq4ak"]
 [ext_resource type="Texture2D" uid="uid://cafck3hon1bxh" path="res://Assets/SlimeBoss/idle-sheet.png" id="2_oq4ak"]
@@ -44,7 +44,7 @@ region = Rect2(192, 0, 32, 64)
 atlas = ExtResource("3_i21p6")
 region = Rect2(224, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1w6v2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jyy6"]
 atlas = ExtResource("3_i21p6")
 region = Rect2(256, 0, 32, 64)
 
@@ -105,15 +105,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cbgmd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1w6v2")
 }],
 "loop": true,
 "name": &"moving",
 "speed": 10.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jyy6")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ueoa1")
 }, {
@@ -134,6 +134,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_oq4ak"]
+radius = 24.0
+
 [node name="SlimeBoss" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_oq4ak")
@@ -141,10 +144,19 @@ script = ExtResource("1_oq4ak")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_h1bgf")
-animation = &"idle"
+animation = &"stuned"
 autoplay = "idle"
 offset = Vector2(0, -19)
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="AttackHitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_oq4ak")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c7pwekakxgqp0"]
+[gd_scene load_steps=24 format=4 uid="uid://c7pwekakxgqp0"]
 
 [ext_resource type="Script" uid="uid://cm6f7nmyhwfx2" path="res://Scripts/inventory.gd" id="1_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://cq0t33cutoal2" path="res://Assets/Sprite-0001.png" id="1_jjvhh"]
@@ -37,6 +37,9 @@ streams_count = 1
 stream_0/stream = ExtResource("6_jkdf5")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdnlq"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k12tt"]
 radius = 16.0
 
 [sub_resource type="Theme" id="Theme_wsu2k"]
@@ -143,6 +146,13 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/InteractablesDetectionArea"]
 shape = SubResource("CircleShape2D_fdnlq")
+
+[node name="Hitbox" type="Area2D" parent="PlayerCharacter"]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/Hitbox"]
+shape = SubResource("CircleShape2D_k12tt")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
