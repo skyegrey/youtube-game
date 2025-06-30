@@ -12,8 +12,8 @@ Comment Features:
 	- [x] Stun on jump landing
 	- [x] Stun sprite
 	- [x] Update sprites to use real sprites
-	- [ ] Convert boss to prefab
-	- [ ] Boss summon key
+	- [x] Convert boss to prefab
+	- [x] Boss summon key
 	- [ ] Progress bar coloring
 	- [ ] Progress bar texturing
 - [x] Add a talking raccoon that guides the player
