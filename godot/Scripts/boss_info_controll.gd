@@ -1,16 +1,11 @@
 class_name BossInfoControl extends MarginContainer
 
-@onready var slime_boss = $"../../../SlimeBoss"
-
 # Child References
 @onready var hp_bar: ProgressBar = $VBoxContainer/HPBar
 @onready var hp_label: Label = $VBoxContainer/HPBar/HPLabel
 
 # State
 @onready var current_boss: Node2D
-
-func _ready():
-	set_as_current_boss(slime_boss)
 
 func set_as_current_boss(boss_enemy: Node2D):
 	visible = true

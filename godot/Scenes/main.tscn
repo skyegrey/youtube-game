@@ -1,17 +1,15 @@
-[gd_scene load_steps=40 format=4 uid="uid://c7pwekakxgqp0"]
+[gd_scene load_steps=23 format=4 uid="uid://c7pwekakxgqp0"]
 
 [ext_resource type="Script" uid="uid://cm6f7nmyhwfx2" path="res://Scripts/inventory.gd" id="1_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://cq0t33cutoal2" path="res://Assets/Sprite-0001.png" id="1_jjvhh"]
 [ext_resource type="Script" uid="uid://ckayu2pxf1dpb" path="res://Scripts/character_body_2d.gd" id="2_kry3j"]
 [ext_resource type="Texture2D" uid="uid://bpeahdbif3sor" path="res://Assets/NPCs/raccoon.png" id="3_6iyac"]
 [ext_resource type="Texture2D" uid="uid://n73hm0gr2uum" path="res://Assets/little-guy.png" id="3_21xkr"]
-[ext_resource type="Script" uid="uid://bhik3tkdp5kx7" path="res://Scenes/raccoon_npc.gd" id="3_fdnlq"]
-[ext_resource type="Script" uid="uid://dkypki612pnwx" path="res://Scenes/slime_boss.gd" id="3_k12tt"]
-[ext_resource type="Texture2D" uid="uid://c0um5xrmgx278" path="res://Assets/SlimeBoss/idle.png" id="3_wsu2k"]
+[ext_resource type="Script" uid="uid://bhik3tkdp5kx7" path="res://Scripts/raccoon_npc.gd" id="3_fdnlq"]
+[ext_resource type="Script" uid="uid://dv5jduw5gsv2b" path="res://Scripts/enemies.gd" id="3_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://ch64oes5c8guc" path="res://Assets/Items/proximity-bananas-fedora.png" id="4_6bp64"]
 [ext_resource type="Texture2D" uid="uid://clv4ir2h1nr27" path="res://Assets/UI/modal-background.png" id="5_6bp64"]
 [ext_resource type="Script" uid="uid://bqj3ryl6tvutp" path="res://Scripts/ui.gd" id="5_344ge"]
-[ext_resource type="Texture2D" uid="uid://bmvyq7r2yp3po" path="res://Assets/SlimeBoss/sprite-sheet-full.png" id="5_b3802"]
 [ext_resource type="Texture2D" uid="uid://bgkv2ibpodqlb" path="res://Assets/UI/grey_panel.png" id="5_kry3j"]
 [ext_resource type="AudioStream" uid="uid://bkk6r8swua1dq" path="res://Assets/sfx/UI Button 1.mp3" id="6_jkdf5"]
 [ext_resource type="Script" uid="uid://be0qyan071tri" path="res://Scripts/inventory_control.gd" id="7_ynf5e"]
@@ -38,122 +36,6 @@ random_pitch = 1.5
 streams_count = 1
 stream_0/stream = ExtResource("6_jkdf5")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k12tt"]
-atlas = ExtResource("3_wsu2k")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fevyy"]
-atlas = ExtResource("5_b3802")
-region = Rect2(0, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hibaj"]
-atlas = ExtResource("5_b3802")
-region = Rect2(32, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pdsj5"]
-atlas = ExtResource("5_b3802")
-region = Rect2(64, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ee4r6"]
-atlas = ExtResource("5_b3802")
-region = Rect2(96, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gt3je"]
-atlas = ExtResource("5_b3802")
-region = Rect2(128, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3pmx8"]
-atlas = ExtResource("5_b3802")
-region = Rect2(160, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u50mg"]
-atlas = ExtResource("5_b3802")
-region = Rect2(192, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cbgmd"]
-atlas = ExtResource("5_b3802")
-region = Rect2(224, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1w6v2"]
-atlas = ExtResource("5_b3802")
-region = Rect2(256, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ueoa1"]
-atlas = ExtResource("5_b3802")
-region = Rect2(288, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6vcvc"]
-atlas = ExtResource("5_b3802")
-region = Rect2(320, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7k868"]
-atlas = ExtResource("5_b3802")
-region = Rect2(352, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hpc6h"]
-atlas = ExtResource("5_b3802")
-region = Rect2(384, 0, 32, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_h1bgf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k12tt")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fevyy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hibaj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pdsj5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ee4r6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gt3je")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3pmx8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u50mg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cbgmd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1w6v2")
-}],
-"loop": true,
-"name": &"moving",
-"speed": 9.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ueoa1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6vcvc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7k868")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hpc6h")
-}],
-"loop": false,
-"name": &"stuned",
-"speed": 9.0
-}]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdnlq"]
 radius = 16.0
 
@@ -172,6 +54,9 @@ z_index = -1
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD+/wAAAQAAAAAAAAD+////AQAAAAAAAAD/////AQAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAD//wEAAQAAAAAAAAD+/wEAAQAAAAAAAAD//wAAAQAAAAAAAAD+/wIAAQAAAAAAAAD//wIAAQAAAAAAAAABAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAABAAIAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAABAP7/AQAAAAAAAAAAAP7/AQAAAAAAAAD///7/AQAAAAAAAAD+//7/AQAAAAAAAAD9//7/AQAAAAAAAAD9////AQAAAAAAAAD9/wAAAQAAAAAAAAD9/wEAAQAAAAAAAAD9/wIAAQAAAAAAAAD8/wMAAQAAAAAAAAD8/wIAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wAAAQAAAAAAAAD8////AQAAAAAAAAD8//7/AQAAAAAAAAD8//3/AQAAAAAAAAD9//3/AQAAAAAAAAD+//3/AQAAAAAAAAD///3/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP3/AQAAAAAAAAACAP3/AQAAAAAAAAACAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAABAAMAAQAAAAAAAAAAAAMAAQAAAAAAAAD//wMAAQAAAAAAAAD+/wMAAQAAAAAAAAD9/wMAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_h2yge")
+
+[node name="Enemies" type="Node2D" parent="."]
+script = ExtResource("3_h1bgf")
 
 [node name="RaccoonNPC" type="Node2D" parent="."]
 position = Vector2(120, -42)
@@ -233,24 +118,6 @@ scroll_active = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RaccoonNPC"]
 stream = SubResource("AudioStreamRandomizer_wsu2k")
-
-[node name="SlimeBoss" type="Node2D" parent="."]
-y_sort_enabled = true
-position = Vector2(80, -183)
-script = ExtResource("3_k12tt")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SlimeBoss"]
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_h1bgf")
-animation = &"stuned"
-autoplay = "idle"
-frame = 3
-frame_progress = 1.0
-offset = Vector2(0, -19)
-metadata/_edit_lock_ = true
-
-[node name="Timer" type="Timer" parent="SlimeBoss"]
-autostart = true
 
 [node name="PlayerCharacter" type="CharacterBody2D" parent="."]
 y_sort_enabled = true

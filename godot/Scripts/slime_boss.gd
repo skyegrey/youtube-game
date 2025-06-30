@@ -2,9 +2,8 @@ class_name SlimeBoss extends Node2D
 
 enum States {IDLE, MOVING, STUNNED}
 
-
-# Scene reference -- CURRENTLY ILLEGAL
-@onready var player_character = $"../PlayerCharacter"
+# Scene references
+@onready var player_character: PlayerCharacter
 
 # Child Refs
 @onready var timer = $Timer
@@ -23,7 +22,6 @@ signal took_damage
 
 func _ready():
 	current_hp = max_hp
-	timer.timeout.connect(_take_damage.bind(1))
 
 func _take_damage(damage_amount: int):
 	current_hp -= damage_amount
