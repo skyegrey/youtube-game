@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ds8n7330vwr4l"]
+[gd_scene load_steps=21 format=3 uid="uid://ds8n7330vwr4l"]
 
 [ext_resource type="Script" uid="uid://dkypki612pnwx" path="res://Scripts/slime_boss.gd" id="1_oq4ak"]
 [ext_resource type="Texture2D" uid="uid://cafck3hon1bxh" path="res://Assets/SlimeBoss/idle-sheet.png" id="2_oq4ak"]
@@ -64,6 +64,10 @@ region = Rect2(352, 0, 32, 64)
 atlas = ExtResource("3_i21p6")
 region = Rect2(384, 0, 32, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq4ak"]
+atlas = ExtResource("3_i21p6")
+region = Rect2(416, 0, 32, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_h1bgf"]
 animations = [{
 "frames": [{
@@ -75,7 +79,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -107,7 +111,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"moving",
-"speed": 9.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -121,10 +125,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hpc6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oq4ak")
 }],
 "loop": false,
 "name": &"stuned",
-"speed": 9.0
+"speed": 10.0
 }]
 
 [node name="SlimeBoss" type="Node2D"]
@@ -134,7 +141,7 @@ script = ExtResource("1_oq4ak")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_h1bgf")
-animation = &"moving"
+animation = &"idle"
 autoplay = "idle"
 offset = Vector2(0, -19)
 metadata/_edit_lock_ = true

@@ -323,7 +323,7 @@ layout_mode = 2
 [node name="BossName" type="RichTextLabel" parent="UILayer/UI/BossInfoControl/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[center]Boss Slime"
+text = "[center]King Slime"
 fit_content = true
 
 [node name="HPBar" type="ProgressBar" parent="UILayer/UI/BossInfoControl/VBoxContainer"]
