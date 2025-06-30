@@ -1,6 +1,6 @@
 
 Comment Features:
-- [ ] Add a boss slime with 50hp that jumps & gets stunned when landing
+- [x] Add a boss slime with 50hp that jumps & gets stunned when landing
 	- [x] Implement the Enemy Node
 	- [x] Give the boss 50 hp
 		- [x] Create a healthbar
@@ -14,8 +14,6 @@ Comment Features:
 	- [x] Update sprites to use real sprites
 	- [x] Convert boss to prefab
 	- [x] Boss summon key
-	- [ ] Progress bar coloring
-	- [ ] Progress bar texturing
 - [x] Add a talking raccoon that guides the player
 	- [x] Add NPC 
 	- [x] Remap inventory from E to ESC
@@ -43,6 +41,7 @@ Maintenance:
 - [ ] Detach sword from character sprite, render sword as sprite on character
 - [ ] Sprite flipping when moving in multiple directions
 - [ ] Downgrade player from characterbody2d to node2d (alt. promote enemy / npc to character body)
+- [ ] Boss HP bar sprites
 
 Bugs:
 - [ ] Fix tooltip flicker
