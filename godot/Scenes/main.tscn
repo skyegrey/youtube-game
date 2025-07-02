@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://c7pwekakxgqp0"]
+[gd_scene load_steps=51 format=4 uid="uid://c7pwekakxgqp0"]
 
 [ext_resource type="Script" uid="uid://cm6f7nmyhwfx2" path="res://Scripts/inventory.gd" id="1_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://cq0t33cutoal2" path="res://Assets/Sprite-0001.png" id="1_jjvhh"]
@@ -19,7 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://b2lesre7doh7r" path="res://Scenes/equipment_slot.tscn" id="10_hptm8"]
 [ext_resource type="Texture2D" uid="uid://c4r6g1gvf8nhq" path="res://Assets/UI/coin-icon.png" id="13_hibaj"]
 [ext_resource type="Script" uid="uid://y1d8etq35e43" path="res://Scenes/money_display.gd" id="13_pdsj5"]
+[ext_resource type="Texture2D" uid="uid://clxcob1i5hqj8" path="res://Assets/Items/witch-hat.png" id="15_ee4r6"]
 [ext_resource type="Script" uid="uid://dnjvmob3nkqle" path="res://Scenes/loot_inventory_control.gd" id="15_fevyy"]
+[ext_resource type="Script" uid="uid://cpsrhkhk5nw0p" path="res://Scenes/new_item_display.gd" id="15_gt3je"]
 [ext_resource type="Script" uid="uid://drn764q21o03q" path="res://Scripts/boss_info_controll.gd" id="17_h1bgf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
@@ -348,7 +350,7 @@ position = Vector2(32, 32)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_neg2b")
 autoplay = "default"
-frame_progress = 0.771982
+frame_progress = 0.185215
 
 [node name="MarginContainer" type="MarginContainer" parent="UILayer/UI/MoneyDisplay"]
 layout_mode = 1
@@ -370,6 +372,42 @@ layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[color=faf36b]0"
+
+[node name="NewItemDisplay" type="Control" parent="UILayer/UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -286.0
+offset_right = 313.0
+offset_bottom = -153.0
+grow_vertical = 0
+script = ExtResource("15_gt3je")
+
+[node name="NewItemNotification" type="Control" parent="UILayer/UI/NewItemDisplay"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 17.0
+offset_right = 226.0
+offset_bottom = 77.0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="UILayer/UI/NewItemDisplay/NewItemNotification"]
+layout_mode = 2
+offset_right = 65.0
+offset_bottom = 65.0
+texture = ExtResource("15_ee4r6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UILayer/UI/NewItemDisplay/NewItemNotification"]
+layout_mode = 2
+offset_left = 77.0
+offset_top = 27.0
+offset_right = 236.0
+offset_bottom = 55.0
+text = "Mage Hat"
 
 [node name="ModalBackground" type="TextureRect" parent="UILayer/UI"]
 unique_name_in_owner = true

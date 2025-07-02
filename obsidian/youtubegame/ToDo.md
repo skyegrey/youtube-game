@@ -57,6 +57,11 @@ Maintenance:
 - [ ] Inventory sprite alignment on the hat
 - [ ] Slots not freeing after equip in inventory
 - [ ] Sprite is dissapearining on drag to new inventory slot
+- [ ] SFX for chest open
+- [ ] New Item display fades out
+- [ ] New item display reads from item resource
+- [ ] New item display is prefabbed
+- [ ] New item display is contained in list
 
 Stretch goal:
 - [ ] Separate lootable ui
