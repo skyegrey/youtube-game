@@ -1,5 +1,19 @@
 
 Comment Features:
+- [x] Add a boss slime with 50hp that jumps & gets stunned when landing
+	- [x] Implement the Enemy Node
+	- [x] Give the boss 50 hp
+		- [x] Create a healthbar
+			- [x] Progress bar
+			- [x] Text
+	- [x] Boss tracks player
+	- [x] Progress bar tracks hp correctly
+	- [x] Jump sprite
+	- [x] Stun on jump landing
+	- [x] Stun sprite
+	- [x] Update sprites to use real sprites
+	- [x] Convert boss to prefab
+	- [x] Boss summon key
 - [x] Add a talking raccoon that guides the player
 	- [x] Add NPC 
 	- [x] Remap inventory from E to ESC
@@ -26,6 +40,8 @@ Maintenance:
 - [ ] Cleanup Inventory slot / equipment slot scenes to have similar child scenes in prefab (i.e. 'ItemFrame' scene & 'Tooltip' scene)
 - [ ] Detach sword from character sprite, render sword as sprite on character
 - [ ] Sprite flipping when moving in multiple directions
+- [ ] Downgrade player from characterbody2d to node2d (alt. promote enemy / npc to character body)
+- [ ] Boss HP bar sprites
 
 Bugs:
 - [ ] Fix tooltip flicker
