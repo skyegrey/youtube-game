@@ -5,15 +5,23 @@ class_name PlayerCharacter extends CharacterBody2D
 @onready var inventory = %Inventory
 @onready var helm = $Helm
 @onready var interactables_detection_area = $InteractablesDetectionArea
+@onready var npc_detection_area = $NPCDetectionArea
 
-@onready var interactable: NPC = null
+@onready var npc: NPC = null
+@onready var interactable: Interactable = null
 
 func _ready():
 	inventory.equipment_updated.connect(_refresh_equipment_sprites)
-	interactables_detection_area.area_entered.connect(_set_interactable)
-	interactables_detection_area.area_exited.connect(_remove_interactable)
+	npc_detection_area.area_entered.connect(_set_npc)
+	npc_detection_area.area_exited.connect(_remove_npc)
+	interactables_detection_area.area_entered.connect(_set_interaractable)
+	interactables_detection_area.area_exited.connect(_remove_interaractable)
 
 func _physics_process(delta):
+	if npc && Input.is_action_just_pressed("ui_interact"):
+		npc.interact()
+		return
+	
 	if interactable && Input.is_action_just_pressed("ui_interact"):
 		interactable.interact()
 		return
@@ -21,8 +29,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("debug_squish"):
 		_squish()
 
-	var movement_vector = Input.get_vector("ui_left", "ui_right", "ui_up", 
-	"ui_down")
+	var movement_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if movement_vector != Vector2.ZERO:
 		velocity = movement_vector * player_speed
 		move_and_slide()
@@ -30,10 +37,16 @@ func _physics_process(delta):
 func _refresh_equipment_sprites():
 	helm.visible = true
 
-func _set_interactable(interactable_area: Area2D):
+func _set_npc(npc_area: Area2D):
+	npc = npc_area.get_parent()
+
+func _remove_npc(npc_area: Area2D):
+	npc = null
+
+func _set_interaractable(interactable_area: Area2D):
 	interactable = interactable_area.get_parent()
 
-func _remove_interactable(interactable_area: Area2D):
+func _remove_interaractable(interactable_area: Area2D):
 	interactable = null
 
 func apply_squish():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://c7pwekakxgqp0"]
+[gd_scene load_steps=40 format=4 uid="uid://c7pwekakxgqp0"]
 
 [ext_resource type="Script" uid="uid://cm6f7nmyhwfx2" path="res://Scripts/inventory.gd" id="1_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://cq0t33cutoal2" path="res://Assets/Sprite-0001.png" id="1_jjvhh"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://bhik3tkdp5kx7" path="res://Scripts/raccoon_npc.gd" id="3_fdnlq"]
 [ext_resource type="Script" uid="uid://dv5jduw5gsv2b" path="res://Scripts/enemies.gd" id="3_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://ch64oes5c8guc" path="res://Assets/Items/proximity-bananas-fedora.png" id="4_6bp64"]
+[ext_resource type="Script" uid="uid://crdbk1dn3l0po" path="res://Scenes/chest.gd" id="4_b3802"]
+[ext_resource type="Texture2D" uid="uid://caisjm7spvcw8" path="res://Assets/Interactables/Chests.png" id="4_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://clv4ir2h1nr27" path="res://Assets/UI/modal-background.png" id="5_6bp64"]
 [ext_resource type="Script" uid="uid://bqj3ryl6tvutp" path="res://Scripts/ui.gd" id="5_344ge"]
 [ext_resource type="Texture2D" uid="uid://bgkv2ibpodqlb" path="res://Assets/UI/grey_panel.png" id="5_kry3j"]
@@ -28,6 +30,99 @@ tile_layout = 5
 tile_size = Vector2i(32, 16)
 sources/1 = SubResource("TileSetAtlasSource_0xm2m")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3802"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(0, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fevyy"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(0, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hibaj"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(48, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdsj5"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(96, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee4r6"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(144, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt3je"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(192, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pmx8"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(0, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u50mg"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(48, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbgmd"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(96, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w6v2"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(144, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ueoa1"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(192, 160, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6vcvc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3802")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fevyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hibaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdsj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee4r6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt3je")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pmx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u50mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbgmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w6v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ueoa1")
+}],
+"loop": false,
+"name": &"open",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7k868"]
+radius = 23.74
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_6iyac"]
 radius = 40.0
 
@@ -39,6 +134,9 @@ stream_0/stream = ExtResource("6_jkdf5")
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdnlq"]
 radius = 16.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_b3802"]
+radius = 16.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_k12tt"]
 radius = 16.0
 
@@ -48,18 +146,37 @@ radius = 16.0
 process_mode = 1
 y_sort_enabled = true
 
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -1
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAD+/wAAAQAAAAAAAAD+////AQAAAAAAAAD/////AQAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAD//wEAAQAAAAAAAAD+/wEAAQAAAAAAAAD//wAAAQAAAAAAAAD+/wIAAQAAAAAAAAD//wIAAQAAAAAAAAABAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAABAAIAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAABAP7/AQAAAAAAAAAAAP7/AQAAAAAAAAD///7/AQAAAAAAAAD+//7/AQAAAAAAAAD9//7/AQAAAAAAAAD9////AQAAAAAAAAD9/wAAAQAAAAAAAAD9/wEAAQAAAAAAAAD9/wIAAQAAAAAAAAD8/wMAAQAAAAAAAAD8/wIAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wAAAQAAAAAAAAD8////AQAAAAAAAAD8//7/AQAAAAAAAAD8//3/AQAAAAAAAAD9//3/AQAAAAAAAAD+//3/AQAAAAAAAAD///3/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP3/AQAAAAAAAAACAP3/AQAAAAAAAAACAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAABAAMAAQAAAAAAAAAAAAMAAQAAAAAAAAD//wMAAQAAAAAAAAD+/wMAAQAAAAAAAAD9/wMAAQAAAAAAAAD7//3/AQAAAAAAAAD7//7/AQAAAAAAAAD7////AQAAAAAAAAD7/wAAAQAAAAAAAAD7/wEAAQAAAAAAAAD7/wIAAQAAAAAAAAD7/wMAAQAAAAAAAAD6/wMAAQAAAAAAAAD6/wIAAQAAAAAAAAD6/wEAAQAAAAAAAAD6/wAAAQAAAAAAAAD6////AQAAAAAAAAD6//7/AQAAAAAAAAD6//3/AQAAAAAAAAD5//3/AQAAAAAAAAD5//7/AQAAAAAAAAD5////AQAAAAAAAAD5/wAAAQAAAAAAAAD5/wEAAQAAAAAAAAD5/wIAAQAAAAAAAAD5/wMAAQAAAAAAAAD4/wMAAQAAAAAAAAD4/wIAAQAAAAAAAAD4/wEAAQAAAAAAAAD4/wAAAQAAAAAAAAD4////AQAAAAAAAAD4//7/AQAAAAAAAAD4//3/AQAAAAAAAAD3//3/AQAAAAAAAAD3//7/AQAAAAAAAAD3////AQAAAAAAAAD3/wAAAQAAAAAAAAD3/wEAAQAAAAAAAAD3/wIAAQAAAAAAAAD3/wMAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_h2yge")
+
 [node name="Inventory" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_d1ilt")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-z_index = -1
-scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAD+/wAAAQAAAAAAAAD+////AQAAAAAAAAD/////AQAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAD//wEAAQAAAAAAAAD+/wEAAQAAAAAAAAD//wAAAQAAAAAAAAD+/wIAAQAAAAAAAAD//wIAAQAAAAAAAAABAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAABAAIAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAABAP7/AQAAAAAAAAAAAP7/AQAAAAAAAAD///7/AQAAAAAAAAD+//7/AQAAAAAAAAD9//7/AQAAAAAAAAD9////AQAAAAAAAAD9/wAAAQAAAAAAAAD9/wEAAQAAAAAAAAD9/wIAAQAAAAAAAAD8/wMAAQAAAAAAAAD8/wIAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wAAAQAAAAAAAAD8////AQAAAAAAAAD8//7/AQAAAAAAAAD8//3/AQAAAAAAAAD9//3/AQAAAAAAAAD+//3/AQAAAAAAAAD///3/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP3/AQAAAAAAAAACAP3/AQAAAAAAAAACAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAABAAMAAQAAAAAAAAAAAAMAAQAAAAAAAAD//wMAAQAAAAAAAAD+/wMAAQAAAAAAAAD9/wMAAQAAAAAAAAA=")
-tile_set = SubResource("TileSet_h2yge")
-
 [node name="Enemies" type="Node2D" parent="."]
 script = ExtResource("3_h1bgf")
+
+[node name="Interactables" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Chest" type="Node2D" parent="Interactables"]
+position = Vector2(-184, -113)
+script = ExtResource("4_b3802")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interactables/Chest"]
+sprite_frames = SubResource("SpriteFrames_6vcvc")
+animation = &"open"
+offset = Vector2(9, -7)
+metadata/_edit_lock_ = true
+
+[node name="InteractableArea" type="Area2D" parent="Interactables/Chest"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Chest/InteractableArea"]
+shape = SubResource("CircleShape2D_7k868")
 
 [node name="RaccoonNPC" type="Node2D" parent="."]
 position = Vector2(120, -42)
@@ -71,7 +188,8 @@ texture = ExtResource("3_6iyac")
 metadata/_edit_lock_ = true
 
 [node name="InteractableArea" type="Area2D" parent="RaccoonNPC"]
-collision_layer = 2
+collision_layer = 32
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RaccoonNPC/InteractableArea"]
 shape = SubResource("CircleShape2D_6iyac")
@@ -146,6 +264,13 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/InteractablesDetectionArea"]
 shape = SubResource("CircleShape2D_fdnlq")
+
+[node name="NPCDetectionArea" type="Area2D" parent="PlayerCharacter"]
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/NPCDetectionArea"]
+shape = SubResource("CircleShape2D_b3802")
 
 [node name="Hitbox" type="Area2D" parent="PlayerCharacter"]
 collision_layer = 4

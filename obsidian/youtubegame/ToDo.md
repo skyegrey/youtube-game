@@ -1,8 +1,8 @@
 
 Comment Features:
 - [ ] Chest that gives currency and hats
-	- [ ] Chest in game world
-	- [ ] Chest interactable
+	- [x] Chest in game world
+	- [x] Chest interactable
 	- [ ] Chest opening
 		- [ ] Chest inventory screen
 		- [ ] Inventory screen (no equip)
