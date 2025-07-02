@@ -3,16 +3,13 @@ Comment Features:
 - [ ] Chest that gives currency and hats
 	- [x] Chest in game world
 	- [x] Chest interactable
-	- [ ] Chest opening
-		- [ ] Chest inventory screen
-		- [ ] Inventory screen (no equip)
+	- [x] Chest opening
 	- [ ] Currency
 		- [ ] Counter on screen
-		- [ ] Name for this -> sluibs??
 		- [ ] Icon
-	- [ ] Hats
-		- [ ] Prefab hat object
-		- [ ] Roll for hat on chest opening
+	- [x] Hats
+		- [x] Prefab hat object
+		- [x] Roll for hat on chest opening
 - [x] Add a boss slime with 50hp that jumps & gets stunned when landing
 	- [x] Implement the Enemy Node
 	- [x] Give the boss 50 hp

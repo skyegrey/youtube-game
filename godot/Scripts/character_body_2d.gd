@@ -1,5 +1,7 @@
 class_name PlayerCharacter extends CharacterBody2D
 
+const Enums = preload("res://Scripts/enums.gd")
+
 @export var player_speed: float = 150
 
 @onready var inventory = %Inventory
@@ -35,7 +37,11 @@ func _physics_process(delta):
 		move_and_slide()
 
 func _refresh_equipment_sprites():
-	helm.visible = true
+	for item_key: Enums.EquipmentType in inventory.equipment:
+		match item_key:
+			Enums.EquipmentType.HELM:
+				helm.visible = true
+				helm.texture = inventory.equipment[item_key].texture
 
 func _set_npc(npc_area: Area2D):
 	npc = npc_area.get_parent()

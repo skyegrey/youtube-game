@@ -16,6 +16,10 @@ func _ready():
 	items.resize(inventory_size)
 	call_deferred("_add_item_to_inventory", PROXIMITY_BANANAS_FEDORA, 0)
 
+func add_to_inventory(new_item: Item):
+	var item_slot = _get_lowest_item_slot()
+	_add_item_to_inventory(new_item, item_slot)
+
 func _add_item_to_inventory(new_item: Item, slot: int):
 	items[slot] = new_item
 	inventory_updated.emit()
@@ -32,3 +36,9 @@ equipment_type: Enums.EquipmentType):
 func _add_item_to_equipment(item: Item, equipment_type: Enums.EquipmentType):
 	equipment[equipment_type] = item
 	equipment_updated.emit()
+
+func _get_lowest_item_slot():
+	for item_slot in range(items.size()):
+		if items[item_slot] == null:
+			return item_slot
+	return -1
