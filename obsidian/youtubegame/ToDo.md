@@ -1,12 +1,12 @@
 
 Comment Features:
-- [ ] Chest that gives currency and hats
+- [x] Chest that gives currency and hats
 	- [x] Chest in game world
 	- [x] Chest interactable
 	- [x] Chest opening
-	- [ ] Currency
-		- [ ] Counter on screen
-		- [ ] Icon
+	- [x] Currency
+		- [x] Counter on screen
+		- [x] Icon
 	- [x] Hats
 		- [x] Prefab hat object
 		- [x] Roll for hat on chest opening
@@ -52,6 +52,14 @@ Maintenance:
 - [ ] Sprite flipping when moving in multiple directions
 - [ ] Downgrade player from characterbody2d to node2d (alt. promote enemy / npc to character body)
 - [ ] Boss HP bar sprites
+- [ ] Chest opening displays text on new items
+- [ ] SFX for money increase
+- [ ] Inventory sprite alignment on the hat
+- [ ] Slots not freeing after equip in inventory
+- [ ] Sprite is dissapearining on drag to new inventory slot
+
+Stretch goal:
+- [ ] Separate lootable ui
 
 Bugs:
 - [ ] Fix tooltip flicker

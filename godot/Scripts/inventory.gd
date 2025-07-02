@@ -6,11 +6,13 @@ const Enums = preload("res://Scripts/enums.gd")
 
 signal inventory_updated
 signal equipment_updated
+signal money_updated
 
 const PROXIMITY_BANANAS_FEDORA: Item = preload("res://Resources/Instances/proximity-bananas-fedora.tres")
 
 @onready var items: Array[Item] = []
 @onready var equipment: Dictionary[Enums.EquipmentType, Item] = {}
+@onready var money: int
 
 func _ready():
 	items.resize(inventory_size)
@@ -42,3 +44,7 @@ func _get_lowest_item_slot():
 		if items[item_slot] == null:
 			return item_slot
 	return -1
+
+func add_money(_money: int):
+	money += _money
+	money_updated.emit(money)
