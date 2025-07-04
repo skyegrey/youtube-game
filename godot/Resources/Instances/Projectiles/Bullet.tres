@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Projectile" load_steps=3 format=3 uid="uid://ck7rte1blg6kj"]
+
+[ext_resource type="Script" uid="uid://djdkuglue8p7f" path="res://Resources/Classes/projectile.gd" id="1_837fg"]
+[ext_resource type="Texture2D" uid="uid://b07ecfkbhn8dj" path="res://Assets/Projectiles/bullet.png" id="2_t6h3g"]
+
+[resource]
+script = ExtResource("1_837fg")
+speed = 1500.0
+max_range = 2000.0
+texture = ExtResource("2_t6h3g")
+metadata/_custom_type_script = "uid://djdkuglue8p7f"

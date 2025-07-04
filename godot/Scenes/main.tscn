@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bhik3tkdp5kx7" path="res://Scripts/raccoon_npc.gd" id="3_fdnlq"]
 [ext_resource type="Script" uid="uid://dv5jduw5gsv2b" path="res://Scripts/enemies.gd" id="3_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://ch64oes5c8guc" path="res://Assets/Items/proximity-bananas-fedora.png" id="4_6bp64"]
-[ext_resource type="Script" uid="uid://crdbk1dn3l0po" path="res://Scenes/chest.gd" id="4_b3802"]
+[ext_resource type="Script" uid="uid://crdbk1dn3l0po" path="res://Scripts/chest.gd" id="4_b3802"]
 [ext_resource type="Texture2D" uid="uid://caisjm7spvcw8" path="res://Assets/Interactables/Chests.png" id="4_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://clv4ir2h1nr27" path="res://Assets/UI/modal-background.png" id="5_6bp64"]
 [ext_resource type="Script" uid="uid://bqj3ryl6tvutp" path="res://Scripts/ui.gd" id="5_344ge"]
@@ -17,10 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://bq5eo010b34jk" path="res://Assets/character-sprite.png" id="10_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://b2lesre7doh7r" path="res://Scenes/equipment_slot.tscn" id="10_hptm8"]
 [ext_resource type="Texture2D" uid="uid://c4r6g1gvf8nhq" path="res://Assets/UI/coin-icon.png" id="13_hibaj"]
-[ext_resource type="Script" path="res://Scenes/money_display.gd" id="13_pdsj5"]
+[ext_resource type="Script" uid="uid://y1d8etq35e43" path="res://Scripts/money_display.gd" id="13_pdsj5"]
 [ext_resource type="Texture2D" uid="uid://clxcob1i5hqj8" path="res://Assets/Items/witch-hat.png" id="15_ee4r6"]
-[ext_resource type="Script" path="res://Scenes/loot_inventory_control.gd" id="15_fevyy"]
-[ext_resource type="Script" path="res://Scenes/new_item_display.gd" id="15_gt3je"]
+[ext_resource type="Script" uid="uid://dnjvmob3nkqle" path="res://Scripts/loot_inventory_control.gd" id="15_fevyy"]
+[ext_resource type="Script" uid="uid://cpsrhkhk5nw0p" path="res://Scripts/new_item_display.gd" id="15_gt3je"]
 [ext_resource type="Script" uid="uid://drn764q21o03q" path="res://Scripts/boss_info_controll.gd" id="17_h1bgf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
@@ -287,6 +287,9 @@ scroll_active = false
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RaccoonNPC"]
 stream = SubResource("AudioStreamRandomizer_wsu2k")
 
+[node name="Projectiles" type="Node2D" parent="."]
+unique_name_in_owner = true
+
 [node name="PlayerCharacter" type="CharacterBody2D" parent="."]
 y_sort_enabled = true
 collision_mask = 2
@@ -302,7 +305,7 @@ visible = false
 scale = Vector2(4, 4)
 offset = Vector2(0, -3)
 
-[node name="Weapon" type="Sprite2D" parent="PlayerCharacter"]
+[node name="WeaponSprite" type="Sprite2D" parent="PlayerCharacter"]
 scale = Vector2(4, 4)
 offset = Vector2(6, 0)
 

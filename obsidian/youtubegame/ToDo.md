@@ -8,7 +8,13 @@ Comment Features:
 	- [x] Load the weapon based on the hat
 		- [x] Creating the cowboy hat resource
 			- [x] Creating the cowboy hat sprite
-	- [ ] Create projectiles
+	- [x] Create projectiles
+		- [x] Create projectile resource
+		- [x] Create projectile scenes
+			- [x] Flask Projectile
+			- [x] Gun Projectiles
+		- [x] Attach the projectiles to the weapons
+		- [x] Aim the projectiles
 - [x] Chest that gives currency and hats
 	- [x] Chest in game world
 	- [x] Chest interactable
