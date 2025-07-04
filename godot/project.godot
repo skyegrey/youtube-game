@@ -101,6 +101,8 @@ attack={
 2d_physics/layer_4="EnemyAttackHitbox"
 2d_physics/layer_5="NPCDetectionArea"
 2d_physics/layer_6="NPC"
+2d_physics/layer_7="EnemyHitbox"
+2d_physics/layer_8="PlayerProjectileHitbox"
 
 [rendering]
 

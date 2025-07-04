@@ -8,4 +8,5 @@ script = ExtResource("1_837fg")
 speed = 1500.0
 max_range = 2000.0
 texture = ExtResource("2_t6h3g")
+damage = 5
 metadata/_custom_type_script = "uid://djdkuglue8p7f"

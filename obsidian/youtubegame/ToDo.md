@@ -15,6 +15,12 @@ Comment Features:
 			- [x] Gun Projectiles
 		- [x] Attach the projectiles to the weapons
 		- [x] Aim the projectiles
+	- [x] Damage enemy on projectile hit
+		- [x] Create signals for on hit
+		- [x] Create poison side effect
+			- [x] Create sprite
+			- [x] Add to Boss HP bar
+			- [x] Apply dot for each stack
 - [x] Chest that gives currency and hats
 	- [x] Chest in game world
 	- [x] Chest interactable

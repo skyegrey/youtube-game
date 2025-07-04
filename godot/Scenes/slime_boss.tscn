@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ds8n7330vwr4l"]
+[gd_scene load_steps=23 format=3 uid="uid://ds8n7330vwr4l"]
 
 [ext_resource type="Script" uid="uid://dkypki612pnwx" path="res://Scripts/slime_boss.gd" id="1_oq4ak"]
 [ext_resource type="Texture2D" uid="uid://cafck3hon1bxh" path="res://Assets/SlimeBoss/idle-sheet.png" id="2_oq4ak"]
@@ -135,7 +135,11 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oq4ak"]
-radius = 24.0
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7c8ib"]
+resource_local_to_scene = true
+radius = 25.0
 
 [node name="SlimeBoss" type="Node2D"]
 y_sort_enabled = true
@@ -144,19 +148,30 @@ script = ExtResource("1_oq4ak")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_h1bgf")
-animation = &"stuned"
+animation = &"moving"
 autoplay = "idle"
 offset = Vector2(0, -19)
 metadata/_edit_lock_ = true
 
-[node name="Timer" type="Timer" parent="."]
+[node name="StatusTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="AttackHitbox" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 4
 monitoring = false
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
-position = Vector2(0, -1)
+position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_oq4ak")
+metadata/_edit_lock_ = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_7c8ib")
+metadata/_edit_lock_ = true
