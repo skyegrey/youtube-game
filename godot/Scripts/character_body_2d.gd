@@ -8,6 +8,7 @@ const Enums = preload("res://Scripts/enums.gd")
 @onready var helm = $Helm
 @onready var interactables_detection_area = $InteractablesDetectionArea
 @onready var npc_detection_area = $NPCDetectionArea
+@onready var weapon = $Weapon
 
 @onready var npc: NPC = null
 @onready var interactable: Interactable = null

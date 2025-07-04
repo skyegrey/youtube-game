@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://c7pwekakxgqp0"]
+[gd_scene load_steps=51 format=4 uid="uid://c7pwekakxgqp0"]
 
 [ext_resource type="Script" uid="uid://cm6f7nmyhwfx2" path="res://Scripts/inventory.gd" id="1_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://cq0t33cutoal2" path="res://Assets/Sprite-0001.png" id="1_jjvhh"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://be0qyan071tri" path="res://Scripts/player_inventory_control.gd" id="7_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://bq5eo010b34jk" path="res://Assets/character-sprite.png" id="10_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://b2lesre7doh7r" path="res://Scenes/equipment_slot.tscn" id="10_hptm8"]
+[ext_resource type="Texture2D" uid="uid://61av7ffwyply" path="res://Assets/Weapons/gun.png" id="12_gt3je"]
 [ext_resource type="Texture2D" uid="uid://c4r6g1gvf8nhq" path="res://Assets/UI/coin-icon.png" id="13_hibaj"]
 [ext_resource type="Script" path="res://Scenes/money_display.gd" id="13_pdsj5"]
 [ext_resource type="Texture2D" uid="uid://clxcob1i5hqj8" path="res://Assets/Items/witch-hat.png" id="15_ee4r6"]
@@ -292,7 +293,7 @@ y_sort_enabled = true
 collision_mask = 2
 script = ExtResource("2_kry3j")
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayerCharacter"]
+[node name="CharacterSprite" type="Sprite2D" parent="PlayerCharacter"]
 scale = Vector2(4, 4)
 texture = ExtResource("10_d1ilt")
 metadata/_edit_lock_ = true
@@ -301,6 +302,11 @@ metadata/_edit_lock_ = true
 visible = false
 scale = Vector2(4, 4)
 offset = Vector2(0, -3)
+
+[node name="Weapon" type="Sprite2D" parent="PlayerCharacter"]
+scale = Vector2(4, 4)
+texture = ExtResource("12_gt3je")
+offset = Vector2(6, 0)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
 zoom = Vector2(3, 3)
