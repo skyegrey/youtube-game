@@ -1,5 +1,7 @@
 
 Comment Features:
+- [ ] Add hat abilities
+	- [ ] Remove the sword from the base sprite
 - [x] Chest that gives currency and hats
 	- [x] Chest in game world
 	- [x] Chest interactable
