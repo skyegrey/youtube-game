@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://c6ybr4f0xa5g5"]
+
+[ext_resource type="Script" uid="uid://cbykd7cin8lvt" path="res://Resources/Classes/weapon.gd" id="1_n86am"]
+[ext_resource type="Texture2D" uid="uid://61av7ffwyply" path="res://Assets/Weapons/gun.png" id="2_ogjq7"]
+
+[resource]
+script = ExtResource("1_n86am")
+texture = ExtResource("2_ogjq7")
+metadata/_custom_type_script = "uid://cbykd7cin8lvt"

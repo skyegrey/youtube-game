@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b8q3xpr1dunab"]
+
+[ext_resource type="Script" uid="uid://dtm6ahjsgix3j" path="res://Resources/Classes/helm.gd" id="1_uhioe"]
+[ext_resource type="Texture2D" uid="uid://ch64oes5c8guc" path="res://Assets/Items/proximity-bananas-fedora.png" id="2_lwhoi"]
+
+[resource]
+script = ExtResource("1_uhioe")
+name = "ProximityBananas Fedora"
+texture = ExtResource("2_lwhoi")
+metadata/_custom_type_script = "uid://dixx145feywd7"

@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bhik3tkdp5kx7" path="res://Scripts/raccoon_npc.gd" id="3_fdnlq"]
 [ext_resource type="Script" uid="uid://dv5jduw5gsv2b" path="res://Scripts/enemies.gd" id="3_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://ch64oes5c8guc" path="res://Assets/Items/proximity-bananas-fedora.png" id="4_6bp64"]
-[ext_resource type="Script" uid="uid://crdbk1dn3l0po" path="res://Scenes/chest.gd" id="4_b3802"]
+[ext_resource type="Script" path="res://Scenes/chest.gd" id="4_b3802"]
 [ext_resource type="Texture2D" uid="uid://caisjm7spvcw8" path="res://Assets/Interactables/Chests.png" id="4_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://clv4ir2h1nr27" path="res://Assets/UI/modal-background.png" id="5_6bp64"]
 [ext_resource type="Script" uid="uid://bqj3ryl6tvutp" path="res://Scripts/ui.gd" id="5_344ge"]
@@ -303,6 +303,7 @@ scale = Vector2(4, 4)
 offset = Vector2(0, -3)
 
 [node name="Weapon" type="Sprite2D" parent="PlayerCharacter"]
+visible = false
 scale = Vector2(4, 4)
 offset = Vector2(6, 0)
 

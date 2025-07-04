@@ -5,9 +5,10 @@ Comment Features:
 	- [x] Create weapon sprites
 		- [x] Gun
 		- [x] Flask
-	- [ ] Load the weapon based on the hat
-		- [ ] Creating the cowboy hat resource
-			- [ ] Creating the cowboy hat sprite
+	- [x] Load the weapon based on the hat
+		- [x] Creating the cowboy hat resource
+			- [x] Creating the cowboy hat sprite
+	- [ ] Create projectiles
 - [x] Chest that gives currency and hats
 	- [x] Chest in game world
 	- [x] Chest interactable

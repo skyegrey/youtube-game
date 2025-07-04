@@ -43,6 +43,7 @@ func _refresh_equipment_sprites():
 			Enums.EquipmentType.HELM:
 				helm.visible = true
 				helm.texture = inventory.equipment[item_key].texture
+				weapon.texture = inventory.equipment[item_key].weapon.texture
 
 func _set_npc(npc_area: Area2D):
 	npc = npc_area.get_parent()
