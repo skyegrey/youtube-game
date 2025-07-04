@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://c7pwekakxgqp0"]
+[gd_scene load_steps=51 format=4 uid="uid://c7pwekakxgqp0"]
 
 [ext_resource type="Script" uid="uid://cm6f7nmyhwfx2" path="res://Scripts/inventory.gd" id="1_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://cq0t33cutoal2" path="res://Assets/Sprite-0001.png" id="1_jjvhh"]
@@ -8,13 +8,20 @@
 [ext_resource type="Script" uid="uid://bhik3tkdp5kx7" path="res://Scripts/raccoon_npc.gd" id="3_fdnlq"]
 [ext_resource type="Script" uid="uid://dv5jduw5gsv2b" path="res://Scripts/enemies.gd" id="3_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://ch64oes5c8guc" path="res://Assets/Items/proximity-bananas-fedora.png" id="4_6bp64"]
+[ext_resource type="Script" uid="uid://crdbk1dn3l0po" path="res://Scenes/chest.gd" id="4_b3802"]
+[ext_resource type="Texture2D" uid="uid://caisjm7spvcw8" path="res://Assets/Interactables/Chests.png" id="4_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://clv4ir2h1nr27" path="res://Assets/UI/modal-background.png" id="5_6bp64"]
 [ext_resource type="Script" uid="uid://bqj3ryl6tvutp" path="res://Scripts/ui.gd" id="5_344ge"]
 [ext_resource type="Texture2D" uid="uid://bgkv2ibpodqlb" path="res://Assets/UI/grey_panel.png" id="5_kry3j"]
 [ext_resource type="AudioStream" uid="uid://bkk6r8swua1dq" path="res://Assets/sfx/UI Button 1.mp3" id="6_jkdf5"]
-[ext_resource type="Script" uid="uid://be0qyan071tri" path="res://Scripts/inventory_control.gd" id="7_ynf5e"]
+[ext_resource type="Script" uid="uid://be0qyan071tri" path="res://Scripts/player_inventory_control.gd" id="7_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://bq5eo010b34jk" path="res://Assets/character-sprite.png" id="10_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://b2lesre7doh7r" path="res://Scenes/equipment_slot.tscn" id="10_hptm8"]
+[ext_resource type="Texture2D" uid="uid://c4r6g1gvf8nhq" path="res://Assets/UI/coin-icon.png" id="13_hibaj"]
+[ext_resource type="Script" uid="uid://y1d8etq35e43" path="res://Scenes/money_display.gd" id="13_pdsj5"]
+[ext_resource type="Texture2D" uid="uid://clxcob1i5hqj8" path="res://Assets/Items/witch-hat.png" id="15_ee4r6"]
+[ext_resource type="Script" uid="uid://dnjvmob3nkqle" path="res://Scenes/loot_inventory_control.gd" id="15_fevyy"]
+[ext_resource type="Script" uid="uid://cpsrhkhk5nw0p" path="res://Scenes/new_item_display.gd" id="15_gt3je"]
 [ext_resource type="Script" uid="uid://drn764q21o03q" path="res://Scripts/boss_info_controll.gd" id="17_h1bgf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
@@ -28,6 +35,99 @@ tile_layout = 5
 tile_size = Vector2i(32, 16)
 sources/1 = SubResource("TileSetAtlasSource_0xm2m")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3802"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(0, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fevyy"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(0, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hibaj"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(48, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdsj5"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(96, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee4r6"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(144, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt3je"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(192, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pmx8"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(0, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u50mg"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(48, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbgmd"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(96, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w6v2"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(144, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ueoa1"]
+atlas = ExtResource("4_h1bgf")
+region = Rect2(192, 160, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6vcvc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3802")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fevyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hibaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdsj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee4r6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt3je")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pmx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u50mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbgmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w6v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ueoa1")
+}],
+"loop": false,
+"name": &"open",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7k868"]
+radius = 23.74
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_6iyac"]
 radius = 40.0
 
@@ -39,8 +139,54 @@ stream_0/stream = ExtResource("6_jkdf5")
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdnlq"]
 radius = 16.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_b3802"]
+radius = 16.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_k12tt"]
 radius = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vcvc"]
+atlas = ExtResource("13_hibaj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k868"]
+atlas = ExtResource("13_hibaj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpc6h"]
+atlas = ExtResource("13_hibaj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kltya"]
+atlas = ExtResource("13_hibaj")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e08e2"]
+atlas = ExtResource("13_hibaj")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_neg2b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vcvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7k868")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpc6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kltya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e08e2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="Theme" id="Theme_wsu2k"]
 
@@ -48,18 +194,37 @@ radius = 16.0
 process_mode = 1
 y_sort_enabled = true
 
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -1
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAD+/wAAAQAAAAAAAAD+////AQAAAAAAAAD/////AQAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAD//wEAAQAAAAAAAAD+/wEAAQAAAAAAAAD//wAAAQAAAAAAAAD+/wIAAQAAAAAAAAD//wIAAQAAAAAAAAABAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAABAAIAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAABAP7/AQAAAAAAAAAAAP7/AQAAAAAAAAD///7/AQAAAAAAAAD+//7/AQAAAAAAAAD9//7/AQAAAAAAAAD9////AQAAAAAAAAD9/wAAAQAAAAAAAAD9/wEAAQAAAAAAAAD9/wIAAQAAAAAAAAD8/wMAAQAAAAAAAAD8/wIAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wAAAQAAAAAAAAD8////AQAAAAAAAAD8//7/AQAAAAAAAAD8//3/AQAAAAAAAAD9//3/AQAAAAAAAAD+//3/AQAAAAAAAAD///3/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP3/AQAAAAAAAAACAP3/AQAAAAAAAAACAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAABAAMAAQAAAAAAAAAAAAMAAQAAAAAAAAD//wMAAQAAAAAAAAD+/wMAAQAAAAAAAAD9/wMAAQAAAAAAAAD7//3/AQAAAAAAAAD7//7/AQAAAAAAAAD7////AQAAAAAAAAD7/wAAAQAAAAAAAAD7/wEAAQAAAAAAAAD7/wIAAQAAAAAAAAD7/wMAAQAAAAAAAAD6/wMAAQAAAAAAAAD6/wIAAQAAAAAAAAD6/wEAAQAAAAAAAAD6/wAAAQAAAAAAAAD6////AQAAAAAAAAD6//7/AQAAAAAAAAD6//3/AQAAAAAAAAD5//3/AQAAAAAAAAD5//7/AQAAAAAAAAD5////AQAAAAAAAAD5/wAAAQAAAAAAAAD5/wEAAQAAAAAAAAD5/wIAAQAAAAAAAAD5/wMAAQAAAAAAAAD4/wMAAQAAAAAAAAD4/wIAAQAAAAAAAAD4/wEAAQAAAAAAAAD4/wAAAQAAAAAAAAD4////AQAAAAAAAAD4//7/AQAAAAAAAAD4//3/AQAAAAAAAAD3//3/AQAAAAAAAAD3//7/AQAAAAAAAAD3////AQAAAAAAAAD3/wAAAQAAAAAAAAD3/wEAAQAAAAAAAAD3/wIAAQAAAAAAAAD3/wMAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_h2yge")
+
 [node name="Inventory" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_d1ilt")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-z_index = -1
-scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAD+/wAAAQAAAAAAAAD+////AQAAAAAAAAD/////AQAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAD//wEAAQAAAAAAAAD+/wEAAQAAAAAAAAD//wAAAQAAAAAAAAD+/wIAAQAAAAAAAAD//wIAAQAAAAAAAAABAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAABAAIAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAABAP7/AQAAAAAAAAAAAP7/AQAAAAAAAAD///7/AQAAAAAAAAD+//7/AQAAAAAAAAD9//7/AQAAAAAAAAD9////AQAAAAAAAAD9/wAAAQAAAAAAAAD9/wEAAQAAAAAAAAD9/wIAAQAAAAAAAAD8/wMAAQAAAAAAAAD8/wIAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wAAAQAAAAAAAAD8////AQAAAAAAAAD8//7/AQAAAAAAAAD8//3/AQAAAAAAAAD9//3/AQAAAAAAAAD+//3/AQAAAAAAAAD///3/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP3/AQAAAAAAAAACAP3/AQAAAAAAAAACAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAABAAMAAQAAAAAAAAAAAAMAAQAAAAAAAAD//wMAAQAAAAAAAAD+/wMAAQAAAAAAAAD9/wMAAQAAAAAAAAA=")
-tile_set = SubResource("TileSet_h2yge")
-
 [node name="Enemies" type="Node2D" parent="."]
 script = ExtResource("3_h1bgf")
+
+[node name="Interactables" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Chest" type="Node2D" parent="Interactables"]
+position = Vector2(-184, -113)
+script = ExtResource("4_b3802")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interactables/Chest"]
+sprite_frames = SubResource("SpriteFrames_6vcvc")
+animation = &"open"
+offset = Vector2(9, -7)
+metadata/_edit_lock_ = true
+
+[node name="InteractableArea" type="Area2D" parent="Interactables/Chest"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Chest/InteractableArea"]
+shape = SubResource("CircleShape2D_7k868")
 
 [node name="RaccoonNPC" type="Node2D" parent="."]
 position = Vector2(120, -42)
@@ -71,7 +236,8 @@ texture = ExtResource("3_6iyac")
 metadata/_edit_lock_ = true
 
 [node name="InteractableArea" type="Area2D" parent="RaccoonNPC"]
-collision_layer = 2
+collision_layer = 32
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RaccoonNPC/InteractableArea"]
 shape = SubResource("CircleShape2D_6iyac")
@@ -134,9 +300,9 @@ offset = Vector2(0, 1)
 metadata/_edit_lock_ = true
 
 [node name="Helm" type="Sprite2D" parent="PlayerCharacter"]
+visible = false
 scale = Vector2(4, 4)
-texture = ExtResource("4_6bp64")
-offset = Vector2(0, -2)
+offset = Vector2(0, -3)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
 zoom = Vector2(3, 3)
@@ -146,6 +312,13 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/InteractablesDetectionArea"]
 shape = SubResource("CircleShape2D_fdnlq")
+
+[node name="NPCDetectionArea" type="Area2D" parent="PlayerCharacter"]
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/NPCDetectionArea"]
+shape = SubResource("CircleShape2D_b3802")
 
 [node name="Hitbox" type="Area2D" parent="PlayerCharacter"]
 collision_layer = 4
@@ -165,6 +338,77 @@ offset_bottom = 800.0
 script = ExtResource("5_344ge")
 metadata/_edit_lock_ = true
 
+[node name="MoneyDisplay" type="Control" parent="UILayer/UI"]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 68.0
+script = ExtResource("13_pdsj5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UILayer/UI/MoneyDisplay"]
+position = Vector2(32, 32)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_neg2b")
+autoplay = "default"
+frame_progress = 0.185215
+
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/UI/MoneyDisplay"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UILayer/UI/MoneyDisplay/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[color=faf36b]0"
+
+[node name="NewItemDisplay" type="Control" parent="UILayer/UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -286.0
+offset_right = 313.0
+offset_bottom = -153.0
+grow_vertical = 0
+script = ExtResource("15_gt3je")
+
+[node name="NewItemNotification" type="Control" parent="UILayer/UI/NewItemDisplay"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 17.0
+offset_right = 226.0
+offset_bottom = 77.0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="UILayer/UI/NewItemDisplay/NewItemNotification"]
+layout_mode = 2
+offset_right = 65.0
+offset_bottom = 65.0
+texture = ExtResource("15_ee4r6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UILayer/UI/NewItemDisplay/NewItemNotification"]
+layout_mode = 2
+offset_left = 77.0
+offset_top = 27.0
+offset_right = 236.0
+offset_bottom = 55.0
+text = "Mage Hat"
+
 [node name="ModalBackground" type="TextureRect" parent="UILayer/UI"]
 unique_name_in_owner = true
 visible = false
@@ -173,7 +417,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_6bp64")
 
-[node name="InventoryControl" type="Control" parent="UILayer/UI"]
+[node name="LootInventoryControl" type="Control" parent="UILayer/UI"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("15_fevyy")
+
+[node name="PlayerInventoryControl" type="Control" parent="UILayer/UI"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -185,7 +436,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_ynf5e")
 
-[node name="InventoryPanel" type="Control" parent="UILayer/UI/InventoryControl"]
+[node name="InventoryPanel" type="Control" parent="UILayer/UI/PlayerInventoryControl"]
 self_modulate = Color(0.270588, 0.501961, 0.521569, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -200,7 +451,7 @@ offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="UILayer/UI/InventoryControl/InventoryPanel"]
+[node name="NinePatchRect" type="NinePatchRect" parent="UILayer/UI/PlayerInventoryControl/InventoryPanel"]
 self_modulate = Color(0.352941, 0.682353, 0.6, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -215,13 +466,13 @@ patch_margin_right = 5
 patch_margin_bottom = 5
 metadata/_edit_lock_ = true
 
-[node name="CharacterPreview" type="Control" parent="UILayer/UI/InventoryControl/InventoryPanel"]
+[node name="CharacterPreview" type="Control" parent="UILayer/UI/PlayerInventoryControl/InventoryPanel"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_lock_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="UILayer/UI/InventoryControl/InventoryPanel/CharacterPreview"]
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/UI/PlayerInventoryControl/InventoryPanel/CharacterPreview"]
 layout_mode = 0
 offset_left = 19.5
 offset_top = 13.0
@@ -232,7 +483,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="SlotBackground" type="NinePatchRect" parent="UILayer/UI/InventoryControl/InventoryPanel/CharacterPreview/MarginContainer"]
+[node name="SlotBackground" type="NinePatchRect" parent="UILayer/UI/PlayerInventoryControl/InventoryPanel/CharacterPreview/MarginContainer"]
 self_modulate = Color(0.290196, 0.537255, 0.560784, 1)
 layout_mode = 2
 texture = ExtResource("5_kry3j")
@@ -243,47 +494,44 @@ patch_margin_right = 5
 patch_margin_bottom = 5
 metadata/_edit_lock_ = true
 
-[node name="CharacterSprite" type="TextureRect" parent="UILayer/UI/InventoryControl/InventoryPanel/CharacterPreview/MarginContainer/SlotBackground"]
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/UI/PlayerInventoryControl/InventoryPanel/CharacterPreview/MarginContainer/SlotBackground"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -49.5
-offset_top = -88.0
-offset_right = -41.5
-offset_bottom = -80.0
 grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(12, 12)
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="CharacterSprite" type="TextureRect" parent="UILayer/UI/PlayerInventoryControl/InventoryPanel/CharacterPreview/MarginContainer/SlotBackground/MarginContainer"]
+layout_mode = 2
 texture = ExtResource("10_d1ilt")
-stretch_mode = 2
 
-[node name="HelmSprite" type="TextureRect" parent="UILayer/UI/InventoryControl/InventoryPanel/CharacterPreview/MarginContainer/SlotBackground"]
+[node name="HelmSprite" type="TextureRect" parent="UILayer/UI/PlayerInventoryControl/InventoryPanel/CharacterPreview/MarginContainer/SlotBackground"]
 visible = false
-layout_mode = 0
-offset_left = 15.0
-offset_top = 4.99994
-offset_right = 21.0
-offset_bottom = 10.9999
-scale = Vector2(12, 12)
+layout_mode = 2
+offset_left = -7.0
+offset_top = -42.0
+offset_right = 111.0
+offset_bottom = 76.0
 texture = ExtResource("4_6bp64")
-stretch_mode = 2
 
-[node name="EquipmentSlots" type="Control" parent="UILayer/UI/InventoryControl/InventoryPanel"]
+[node name="EquipmentSlots" type="Control" parent="UILayer/UI/PlayerInventoryControl/InventoryPanel"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_lock_ = true
 
-[node name="EquipmentSlot" parent="UILayer/UI/InventoryControl/InventoryPanel/EquipmentSlots" instance=ExtResource("10_hptm8")]
+[node name="EquipmentSlot" parent="UILayer/UI/PlayerInventoryControl/InventoryPanel/EquipmentSlots" instance=ExtResource("10_hptm8")]
 offset_left = 381.5
 offset_top = 28.0
 offset_right = 456.5
 offset_bottom = 103.0
 
-[node name="MarginContainer" type="MarginContainer" parent="UILayer/UI/InventoryControl/InventoryPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/UI/PlayerInventoryControl/InventoryPanel"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -297,7 +545,7 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 metadata/_edit_lock_ = true
 
-[node name="InvetorySlotsContainer" type="GridContainer" parent="UILayer/UI/InventoryControl/InventoryPanel/MarginContainer"]
+[node name="InvetorySlotsContainer" type="GridContainer" parent="UILayer/UI/PlayerInventoryControl/InventoryPanel/MarginContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_constants/h_separation = 5
@@ -305,11 +553,12 @@ theme_override_constants/v_separation = 5
 columns = 7
 metadata/_edit_lock_ = true
 
-[node name="DraggingItemTexture" type="TextureRect" parent="UILayer/UI/InventoryControl/InventoryPanel"]
+[node name="DraggingItemTexture" type="TextureRect" parent="UILayer/UI/PlayerInventoryControl/InventoryPanel"]
 visible = false
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 65.0
+offset_bottom = 65.0
 
 [node name="BossInfoControl" type="MarginContainer" parent="UILayer/UI"]
 visible = false

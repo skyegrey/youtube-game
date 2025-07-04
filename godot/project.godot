@@ -91,9 +91,11 @@ debug_squish={
 [layer_names]
 
 2d_physics/layer_1="InteractableDetectionArea"
-2d_physics/layer_2="InteractableRange"
+2d_physics/layer_2="Interactable"
 2d_physics/layer_3="PlayerHitbox"
 2d_physics/layer_4="EnemyAttackHitbox"
+2d_physics/layer_5="NPCDetectionArea"
+2d_physics/layer_6="NPC"
 
 [rendering]
 

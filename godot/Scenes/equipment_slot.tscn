@@ -13,9 +13,12 @@ script = ExtResource("1_qq6so")
 
 [node name="SlotBackground" type="NinePatchRect" parent="."]
 self_modulate = Color(0.290196, 0.537255, 0.560784, 1)
-layout_mode = 0
-offset_right = 75.0
-offset_bottom = 75.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_t6p07")
 region_rect = Rect2(0, 0, 100, 100)
 patch_margin_left = 5
@@ -30,10 +33,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="TextureRect" type="TextureRect" parent="SlotBackground/MarginContainer"]
 layout_mode = 2

@@ -1,5 +1,15 @@
 
 Comment Features:
+- [x] Chest that gives currency and hats
+	- [x] Chest in game world
+	- [x] Chest interactable
+	- [x] Chest opening
+	- [x] Currency
+		- [x] Counter on screen
+		- [x] Icon
+	- [x] Hats
+		- [x] Prefab hat object
+		- [x] Roll for hat on chest opening
 - [x] Add a boss slime with 50hp that jumps & gets stunned when landing
 	- [x] Implement the Enemy Node
 	- [x] Give the boss 50 hp
@@ -42,6 +52,19 @@ Maintenance:
 - [ ] Sprite flipping when moving in multiple directions
 - [ ] Downgrade player from characterbody2d to node2d (alt. promote enemy / npc to character body)
 - [ ] Boss HP bar sprites
+- [ ] Chest opening displays text on new items
+- [ ] SFX for money increase
+- [ ] Inventory sprite alignment on the hat
+- [ ] Slots not freeing after equip in inventory
+- [ ] Sprite is dissapearining on drag to new inventory slot
+- [ ] SFX for chest open
+- [ ] New Item display fades out
+- [ ] New item display reads from item resource
+- [ ] New item display is prefabbed
+- [ ] New item display is contained in list
+
+Stretch goal:
+- [ ] Separate lootable ui
 
 Bugs:
 - [ ] Fix tooltip flicker
