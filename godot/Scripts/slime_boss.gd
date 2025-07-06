@@ -6,13 +6,16 @@ enum States {IDLE, MOVING, STUNNED}
 @onready var player_character: PlayerCharacter
 
 # Child Refs
-@onready var timer = $Timer
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var attack_hitbox = $AttackHitbox
+@onready var hitbox = $Hitbox
+@onready var status_timer = $StatusTimer
 
 # Properties
 @export var movement_speed: float = .065
 @export var max_hp: int = 50
+@export var jump_frame_to_hitbox_area: Dictionary
+@export var poison_stacks: int = 0
 
 # State
 @onready var current_hp: int
@@ -20,15 +23,26 @@ enum States {IDLE, MOVING, STUNNED}
 
 # Signals
 signal took_damage
+signal took_status
 
 func _ready():
 	current_hp = max_hp
 	attack_hitbox.area_entered.connect(_hit_player)
+	hitbox.area_entered.connect(_hit_by_projectile)
+	status_timer.timeout.connect(_apply_statuses)
 
 func _take_damage(damage_amount: int):
 	current_hp -= damage_amount
 	took_damage.emit()
 	_check_is_dead()
+
+func _apply_statuses():
+	if poison_stacks >= 0:
+		_take_damage(poison_stacks * 5)
+
+func _apply_poison(stacks: int):
+	poison_stacks += stacks
+	took_status.emit()
 
 func _check_is_dead():
 	if current_hp <= 0:
@@ -72,3 +86,9 @@ func _update_animation(new_state: States):
 
 func _hit_player(player_area: Area2D):
 	player_area.get_parent().apply_squish()
+
+func _hit_by_projectile(projectile_area: Area2D):
+	var projectile: Projectile = projectile_area.get_parent().projectile
+	_take_damage(projectile.damage)
+	if projectile.poison_stacks >= 0:
+		_apply_poison(projectile.poison_stacks)

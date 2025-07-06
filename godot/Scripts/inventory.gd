@@ -8,7 +8,7 @@ signal inventory_updated
 signal equipment_updated
 signal money_updated
 
-const PROXIMITY_BANANAS_FEDORA: Item = preload("res://Resources/Instances/proximity-bananas-fedora.tres")
+const PROXIMITY_BANANAS_FEDORA = preload("res://Resources/Instances/Helms/proximity-bananas-fedora.tres")
 
 @onready var items: Array[Item] = []
 @onready var equipment: Dictionary[Enums.EquipmentType, Item] = {}

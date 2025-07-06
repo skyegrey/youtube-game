@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://c3stob1c2r0us"]
+
+[ext_resource type="Script" uid="uid://cbykd7cin8lvt" path="res://Resources/Classes/weapon.gd" id="1_553h5"]
+[ext_resource type="Resource" uid="uid://bdygllov05ao1" path="res://Resources/Instances/Projectiles/thrown_flask.tres" id="1_h17xy"]
+[ext_resource type="Texture2D" uid="uid://bgpwp8giexxit" path="res://Assets/Weapons/flask.png" id="2_uv58y"]
+
+[resource]
+script = ExtResource("1_553h5")
+texture = ExtResource("2_uv58y")
+projectile = ExtResource("1_h17xy")
+metadata/_custom_type_script = "uid://cbykd7cin8lvt"

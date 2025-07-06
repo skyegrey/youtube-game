@@ -1,5 +1,26 @@
 
 Comment Features:
+- [x] Add hat abilities
+	- [x] Remove the sword from the base sprite
+	- [x] Create weapon sprites
+		- [x] Gun
+		- [x] Flask
+	- [x] Load the weapon based on the hat
+		- [x] Creating the cowboy hat resource
+			- [x] Creating the cowboy hat sprite
+	- [x] Create projectiles
+		- [x] Create projectile resource
+		- [x] Create projectile scenes
+			- [x] Flask Projectile
+			- [x] Gun Projectiles
+		- [x] Attach the projectiles to the weapons
+		- [x] Aim the projectiles
+	- [x] Damage enemy on projectile hit
+		- [x] Create signals for on hit
+		- [x] Create poison side effect
+			- [x] Create sprite
+			- [x] Add to Boss HP bar
+			- [x] Apply dot for each stack
 - [x] Chest that gives currency and hats
 	- [x] Chest in game world
 	- [x] Chest interactable
