@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://c7pwekakxgqp0"]
+[gd_scene load_steps=55 format=4 uid="uid://c7pwekakxgqp0"]
 
 [ext_resource type="Script" uid="uid://cm6f7nmyhwfx2" path="res://Scripts/inventory.gd" id="1_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://cq0t33cutoal2" path="res://Assets/Sprite-0001.png" id="1_jjvhh"]
@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://clxcob1i5hqj8" path="res://Assets/Items/witch-hat.png" id="15_ee4r6"]
 [ext_resource type="Script" path="res://Scripts/loot_inventory_control.gd" id="15_fevyy"]
 [ext_resource type="Script" path="res://Scripts/new_item_display.gd" id="15_gt3je"]
+[ext_resource type="Script" uid="uid://437xjgu7fnhi" path="res://Scenes/player_condition.gd" id="16_cbgmd"]
+[ext_resource type="Texture2D" uid="uid://b8wya8kbqosej" path="res://Assets/UI/character-status.png" id="16_u50mg"]
 [ext_resource type="Script" uid="uid://drn764q21o03q" path="res://Scripts/boss_info_controll.gd" id="17_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://c8rdqdkg7ulvt" path="res://Assets/Status/poison.png" id="23_gt3je"]
 
@@ -189,6 +191,13 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pmx8"]
+bg_color = Color(1, 0.2, 0.2, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="Theme" id="Theme_wsu2k"]
 
 [node name="Main" type="Node2D"]
@@ -226,7 +235,8 @@ offset = Vector2(9, -7)
 metadata/_edit_lock_ = true
 
 [node name="InteractableArea" type="Area2D" parent="Interactables/Chest"]
-collision_layer = 2
+collision_layer = 256
+collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Chest/InteractableArea"]
 shape = SubResource("CircleShape2D_7k868")
@@ -241,8 +251,8 @@ texture = ExtResource("3_6iyac")
 metadata/_edit_lock_ = true
 
 [node name="InteractableArea" type="Area2D" parent="RaccoonNPC"]
-collision_layer = 32
-collision_mask = 16
+collision_layer = 4096
+collision_mask = 8192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RaccoonNPC/InteractableArea"]
 shape = SubResource("CircleShape2D_6iyac")
@@ -296,9 +306,8 @@ stream = SubResource("AudioStreamRandomizer_wsu2k")
 [node name="Projectiles" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="PlayerCharacter" type="CharacterBody2D" parent="."]
+[node name="PlayerCharacter" type="Node2D" parent="."]
 y_sort_enabled = true
-collision_mask = 2
 script = ExtResource("2_kry3j")
 
 [node name="CharacterSprite" type="Sprite2D" parent="PlayerCharacter"]
@@ -319,23 +328,23 @@ offset = Vector2(6, 0)
 zoom = Vector2(3, 3)
 
 [node name="InteractablesDetectionArea" type="Area2D" parent="PlayerCharacter"]
-collision_mask = 2
+collision_layer = 512
+collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/InteractablesDetectionArea"]
 shape = SubResource("CircleShape2D_fdnlq")
 
 [node name="NPCDetectionArea" type="Area2D" parent="PlayerCharacter"]
-collision_layer = 16
-collision_mask = 32
+collision_layer = 8192
+collision_mask = 4096
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/NPCDetectionArea"]
 shape = SubResource("CircleShape2D_b3802")
 
-[node name="Hitbox" type="Area2D" parent="PlayerCharacter"]
-collision_layer = 4
-collision_mask = 8
+[node name="Hurtbox" type="Area2D" parent="PlayerCharacter"]
+collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/Hurtbox"]
 shape = SubResource("CircleShape2D_k12tt")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
@@ -370,7 +379,8 @@ text = "[center]Slimes Remaining: 50"
 [node name="MoneyDisplay" type="Control" parent="UILayer/UI"]
 layout_mode = 1
 anchors_preset = 0
-offset_right = 200.0
+offset_left = 1000.0
+offset_right = 1200.0
 offset_bottom = 68.0
 script = ExtResource("13_pdsj5")
 
@@ -380,6 +390,7 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_neg2b")
 autoplay = "default"
 frame_progress = 0.185215
+metadata/_edit_lock_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="UILayer/UI/MoneyDisplay"]
 layout_mode = 1
@@ -395,12 +406,43 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
+metadata/_edit_lock_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UILayer/UI/MoneyDisplay/MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[color=faf36b]0"
+metadata/_edit_lock_ = true
+
+[node name="PlayerCondition" type="MarginContainer" parent="UILayer/UI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("16_cbgmd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/UI/PlayerCondition"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UILayer/UI/PlayerCondition/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("16_u50mg")
+
+[node name="ProgressBar" type="ProgressBar" parent="UILayer/UI/PlayerCondition/HBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_3pmx8")
+value = 100.0
+show_percentage = false
 
 [node name="NewItemDisplay" type="Control" parent="UILayer/UI"]
 layout_mode = 1

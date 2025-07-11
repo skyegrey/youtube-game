@@ -1,4 +1,4 @@
-class_name EnemyNode extends Node2D
+class_name EnemyNode extends CharacterNode
 
 enum States {IDLE, MOVING, STUNNED}
 
@@ -6,25 +6,23 @@ enum States {IDLE, MOVING, STUNNED}
 @onready var player_character: PlayerCharacter
 
 # Child refs
-@onready var hitbox = $Hitbox
+@onready var hurtbox = $Hurtbox
 @onready var status_timer = $StatusTimer
 
 # Properties
 @export var movement_speed: float = .065
+@export var damage: int = 10
 
 # State variables
-@export var current_hp: int = 10
-@export var max_hp: int = 10
-@export var poison_stacks: int = 0
 @onready var state: States = States.MOVING
 
 # Signals
-signal took_damage
 signal took_status
 
 func _ready():
+	super()
 	current_hp = max_hp
-	hitbox.area_entered.connect(_hit_by_projectile)
+	hurtbox.area_entered.connect(_hit_by_projectile)
 	status_timer.timeout.connect(_apply_statuses)
 
 func _process(delta):
@@ -46,11 +44,6 @@ func _hit_by_projectile(projectile_area: Area2D):
 	_take_damage(projectile.damage)
 	if projectile.poison_stacks >= 0:
 		_apply_poison(projectile.poison_stacks)
-
-func _take_damage(damage_amount: int):
-	current_hp -= damage_amount
-	took_damage.emit()
-	_check_is_dead()
 
 func _apply_statuses():
 	if poison_stacks >= 0:
