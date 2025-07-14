@@ -1,3 +1,3 @@
 class_name HatResource extends ItemResource
 
-@export var weapon: Weapon
+@export var weapon_resource: WeaponResource

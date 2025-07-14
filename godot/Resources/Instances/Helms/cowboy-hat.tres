@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="Helm" load_steps=4 format=3 uid="uid://caxvg1najj6bm"]
+[gd_resource type="Resource" script_class="HatResource" load_steps=4 format=3 uid="uid://caxvg1najj6bm"]
 
-[ext_resource type="Script" uid="uid://dtm6ahjsgix3j" path="res://Resources/Classes/hat_resource.gd" id="1_udgxt"]
+[ext_resource type="Script" uid="uid://dtm6ahjsgix3j" path="res://Resources/Classes/hat_resource.gd" id="1_iyt6g"]
 [ext_resource type="Texture2D" uid="uid://cb41sact3nux0" path="res://Assets/Items/cowboy-hat.png" id="2_iyt6g"]
 [ext_resource type="Resource" uid="uid://c6ybr4f0xa5g5" path="res://Resources/Instances/Weapons/gun.tres" id="3_g04hk"]
 
 [resource]
-script = ExtResource("1_udgxt")
-weapon = ExtResource("3_g04hk")
+script = ExtResource("1_iyt6g")
+weapon_resource = ExtResource("3_g04hk")
 name = "Cowboy Hat"
 texture = ExtResource("2_iyt6g")
-metadata/_custom_type_script = "uid://dtm6ahjsgix3j"
