@@ -100,14 +100,14 @@ debug_spawn_slime={
 
 [layer_names]
 
-2d_physics/layer_1="InteractableDetectionArea"
-2d_physics/layer_2="Interactable"
-2d_physics/layer_3="PlayerHitbox"
-2d_physics/layer_4="EnemyAttackHitbox"
-2d_physics/layer_5="NPCDetectionArea"
-2d_physics/layer_6="NPC"
-2d_physics/layer_7="EnemyHitbox"
-2d_physics/layer_8="PlayerProjectileHitbox"
+2d_physics/layer_1="PlayerHurtbox"
+2d_physics/layer_2="PlayerAttackHitbox"
+2d_physics/layer_5="EnemyHurtbox"
+2d_physics/layer_6="EnemyAttackHitbox"
+2d_physics/layer_9="Interactable"
+2d_physics/layer_10="InteractableDetectionArea"
+2d_physics/layer_13="NPC"
+2d_physics/layer_14="NPCDetectionArea"
 
 [rendering]
 

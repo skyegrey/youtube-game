@@ -144,6 +144,11 @@ radius = 25.0
 [node name="SlimeBoss" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_oq4ak")
+jump_frame_to_hitbox_area = null
+movement_speed = null
+max_hp = null
+poison_stacks = null
+current_hp = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
@@ -157,8 +162,7 @@ metadata/_edit_lock_ = true
 autostart = true
 
 [node name="AttackHitbox" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 4
+collision_mask = 32
 monitoring = false
 metadata/_edit_lock_ = true
 
@@ -167,11 +171,11 @@ position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_oq4ak")
 metadata/_edit_lock_ = true
 
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 64
-collision_mask = 128
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_7c8ib")
 metadata/_edit_lock_ = true
