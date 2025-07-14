@@ -63,6 +63,7 @@ func _physics_process(delta):
 	var movement_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if movement_vector != Vector2.ZERO:
 		position += delta * movement_vector * player_speed
+		_flip_sprites(movement_vector.x)
 
 func _set_npc(npc_area: Area2D):
 	npc = npc_area.get_parent()
@@ -129,3 +130,11 @@ func _equip_hat(hat_slot: int):
 		hat.texture = hat_resource.texture
 		weapon = hat_resource.weapon_resource
 		weapon_sprite.texture = hat_resource.weapon_resource.texture
+
+func _flip_sprites(movement_direction):
+	for sprite: Sprite2D in [
+		character_sprite, hat, weapon_sprite
+	]:
+		sprite.flip_h = movement_direction < 0
+	var weapon_offset = 7.0
+	weapon_sprite.offset.x = weapon_offset if movement_direction >= 0 else -weapon_offset
