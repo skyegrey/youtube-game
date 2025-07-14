@@ -1,7 +1,6 @@
 class_name Chest extends Interactable
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var loot_inventory_control = %LootInventoryControl
 @onready var inventory = %Inventory
 @onready var new_item_display = $"../../UILayer/UI/NewItemDisplay"
 
@@ -13,4 +12,3 @@ func interact():
 	inventory.add_to_inventory([WITCH_HAT, COWBOY_HAT].pick_random())
 	inventory.add_money(100)
 	new_item_display.display_new_item()
-	#loot_inventory_control.open(self)

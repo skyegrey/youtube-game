@@ -1,28 +1,36 @@
 class_name PlayerCharacter extends CharacterNode
 
 const Enums = preload("res://Scripts/enums.gd")
-const PROJECTILE_NODE = preload("res://Scenes/projectile_node.tscn")
-@export var player_speed: float = 150
-@onready var player_condition = %PlayerCondition
-@onready var character_sprite = $CharacterSprite
 
-@onready var inventory = %Inventory
+# Scenes
+const PROJECTILE_NODE = preload("res://Scenes/projectile_node.tscn")
+
+# Scene references
+@onready var player_condition = %PlayerCondition
+@onready var inventory: Inventory = %Inventory
+@onready var projectiles = %Projectiles
+
+# Children references
+@onready var character_sprite = $CharacterSprite
 @onready var helm = $Helm
 @onready var interactables_detection_area = $InteractablesDetectionArea
 @onready var npc_detection_area = $NPCDetectionArea
 @onready var weapon_sprite = $WeaponSprite
 @onready var hurtbox = $Hurtbox
 
+# Properties
+@export var player_speed: float = 150
+
+# State
+@onready var state = States.IN_CUTSCENE
 @onready var npc: NPC = null
 @onready var weapon: Weapon
 @onready var interactable: Interactable = null
-@onready var projectiles = %Projectiles
 @onready var is_vulnerable = true
 
 func _ready():
 	max_hp = 100
 	super()
-	inventory.equipment_updated.connect(_refresh_equipment_sprites)
 	npc_detection_area.area_entered.connect(_set_npc)
 	npc_detection_area.area_exited.connect(_remove_npc)
 	interactables_detection_area.area_entered.connect(_set_interaractable)
@@ -30,9 +38,14 @@ func _ready():
 	hurtbox.area_entered.connect(_hit_by_attack)
 
 func _physics_process(delta):
+	if state == States.STUNNED:
+		return
 	
 	if npc && Input.is_action_just_pressed("ui_interact"):
 		npc.interact()
+		return
+	
+	if state == States.IN_CUTSCENE:
 		return
 	
 	if interactable && Input.is_action_just_pressed("ui_interact"):
@@ -58,6 +71,7 @@ func _refresh_equipment_sprites():
 
 func _set_npc(npc_area: Area2D):
 	npc = npc_area.get_parent()
+	npc.dialouge_finished.connect(_end_cutscene)
 
 func _remove_npc(npc_area: Area2D):
 	npc = null
@@ -106,3 +120,9 @@ func _play_hurt_animation():
 	hurt_tween.set_loops(2)
 	await hurt_tween.finished
 	is_vulnerable = true
+
+func _end_cutscene():
+	state = States.IDLE
+
+func auto_equip_hat(new_hat_resource: HatResource):
+	inventory.auto_equip_hat(new_hat_resource)

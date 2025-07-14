@@ -1,5 +1,16 @@
 
 Comment Features:
+- [ ] Update the friendly racoon
+	- [x] Approaches you at the start of the game
+		- [x] Animate approach
+	- [x] Tells you how to move
+	- [ ] Gives you your first hat
+		- [ ] Rework inventory to have 1 - 4 slots
+	- [x] Explains how to attack
+		- [x] Left click to attack
+		- [x] Right click to use secondary attack
+		- [x] Shift to use movement ability
+		- [x] R key to ult
 - [x] Add hat abilities
 	- [x] Remove the sword from the base sprite
 	- [x] Create weapon sprites
