@@ -1,7 +1,5 @@
 class_name EnemyNode extends CharacterNode
 
-enum States {IDLE, MOVING, STUNNED}
-
 # Scene refs
 @onready var player_character: PlayerCharacter
 

@@ -6,7 +6,7 @@ const Enums = preload("res://Scripts/enums.gd")
 
 @onready var placeholder_sprite = $SlotBackground/MarginContainer/PlaceholderSprite
 
-func set_item(item: Item):
+func set_item(item: ItemResource):
 	super(item)
 	placeholder_sprite.visible = false
 

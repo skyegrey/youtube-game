@@ -315,12 +315,13 @@ texture = ExtResource("10_d1ilt")
 metadata/_edit_lock_ = true
 
 [node name="Hat" type="Sprite2D" parent="PlayerCharacter"]
+visible = false
 scale = Vector2(4, 4)
 offset = Vector2(0, -3)
 
 [node name="WeaponSprite" type="Sprite2D" parent="PlayerCharacter"]
 scale = Vector2(4, 4)
-offset = Vector2(7, -3)
+offset = Vector2(6, 0)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
 zoom = Vector2(3, 3)

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bpeahdbif3sor" path="res://Assets/NPCs/raccoon.png" id="3_6iyac"]
 [ext_resource type="Script" uid="uid://bhik3tkdp5kx7" path="res://Scripts/raccoon_npc.gd" id="3_fdnlq"]
 [ext_resource type="Script" uid="uid://dv5jduw5gsv2b" path="res://Scripts/enemies.gd" id="3_h1bgf"]
-[ext_resource type="Script" uid="uid://crdbk1dn3l0po" path="res://Scripts/chest.gd" id="4_b3802"]
+[ext_resource type="Script" path="res://Scripts/chest.gd" id="4_b3802"]
 [ext_resource type="Texture2D" uid="uid://caisjm7spvcw8" path="res://Assets/Interactables/Chests.png" id="4_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://clv4ir2h1nr27" path="res://Assets/UI/modal-background.png" id="5_6bp64"]
 [ext_resource type="Script" uid="uid://bqj3ryl6tvutp" path="res://Scripts/ui.gd" id="5_344ge"]
@@ -314,13 +314,14 @@ scale = Vector2(4, 4)
 texture = ExtResource("10_d1ilt")
 metadata/_edit_lock_ = true
 
-[node name="Hat" type="Sprite2D" parent="PlayerCharacter"]
+[node name="Helm" type="Sprite2D" parent="PlayerCharacter"]
+visible = false
 scale = Vector2(4, 4)
 offset = Vector2(0, -3)
 
 [node name="WeaponSprite" type="Sprite2D" parent="PlayerCharacter"]
 scale = Vector2(4, 4)
-offset = Vector2(7, -3)
+offset = Vector2(6, 0)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
 zoom = Vector2(3, 3)
@@ -553,39 +554,21 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -162.5
-offset_top = -85.0
-offset_right = 162.5
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("23_3pmx8")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UILayer/UI/HatsControl"]
-self_modulate = Color(0.372549, 0.690196, 0.721569, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+self_modulate = Color(0.270588, 0.501961, 0.521569, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 texture = ExtResource("5_kry3j")
-region_rect = Rect2(0, 0, 100, 100)
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="UILayer/UI/HatsControl/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/UI/HatsControl/NinePatchRect/MarginContainer"]
-layout_mode = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/UI/HatsControl/NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

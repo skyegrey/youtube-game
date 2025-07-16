@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "ToDo"
             }
+          },
+          {
+            "id": "054a649870d91748",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Color Schemes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Color Schemes"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -168,8 +183,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a3928100190061b0",
+  "active": "054a649870d91748",
   "lastOpenFiles": [
-    "ToDo.md"
+    "ToDo.md",
+    "Color Schemes.md"
   ]
 }
