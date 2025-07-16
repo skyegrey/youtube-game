@@ -1,11 +1,11 @@
 
 Comment Features:
-- [ ] Update the friendly racoon
+- [x] Update the friendly racoon
 	- [x] Approaches you at the start of the game
 		- [x] Animate approach
 	- [x] Tells you how to move
-	- [ ] Gives you your first hat
-		- [ ] Rework inventory to have 1 - 4 slots
+	- [x] Gives you your first hat
+		- [x] Rework inventory to have 1 - 4 slots
 	- [x] Explains how to attack
 		- [x] Left click to attack
 		- [x] Right click to use secondary attack

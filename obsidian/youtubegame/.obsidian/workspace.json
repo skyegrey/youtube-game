@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Color Schemes.md",
+                "file": "ToDo.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Color Schemes"
+              "title": "ToDo"
             }
           }
         ],
@@ -185,7 +185,7 @@
   },
   "active": "054a649870d91748",
   "lastOpenFiles": [
-    "ToDo.md",
-    "Color Schemes.md"
+    "Color Schemes.md",
+    "ToDo.md"
   ]
 }
