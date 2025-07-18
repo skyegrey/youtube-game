@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HatResource" load_steps=6 format=3 uid="uid://c2hail6k3v2n6"]
+
+[ext_resource type="Resource" uid="uid://27d5n7ges01h" path="res://Resources/Instances/AttackResources/RangedAttackResources/Potion.tres" id="1_aa06b"]
+[ext_resource type="Script" uid="uid://dtm6ahjsgix3j" path="res://Resources/Classes/hat_resource.gd" id="1_fsms2"]
+[ext_resource type="Texture2D" uid="uid://clxcob1i5hqj8" path="res://Assets/Items/witch-hat.png" id="2_ljr4a"]
+[ext_resource type="Resource" uid="uid://don33e2mecgtt" path="res://Resources/Instances/AttackResources/RangedAttackResources/ClusterPotion.tres" id="3_a68yb"]
+[ext_resource type="Resource" uid="uid://c3stob1c2r0us" path="res://Resources/Instances/Weapons/flask.tres" id="3_aeno5"]
+
+[resource]
+script = ExtResource("1_fsms2")
+basic_attack = ExtResource("1_aa06b")
+ultimate_ability = ExtResource("3_a68yb")
+weapon_resource = ExtResource("3_aeno5")
+name = "Witch Hat"
+texture = ExtResource("2_ljr4a")

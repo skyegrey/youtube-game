@@ -27,6 +27,7 @@ const PROJECTILE_NODE = preload("res://Scenes/projectile_node.tscn")
 @onready var weapon: WeaponResource
 @onready var interactable: Interactable = null
 @onready var is_vulnerable = true
+@onready var hat_resource: HatResource = null
 
 func _ready():
 	max_hp = 100
@@ -56,8 +57,15 @@ func _physics_process(delta):
 		interactable.interact()
 		return
 	
+	if state == States.MOVEMENT_LOCKED:
+		return
+	
 	if Input.is_action_just_pressed("attack"):
 		_attack()
+		return
+	
+	if Input.is_action_just_pressed("use_ultimate_ability"):
+		_ult()
 		return
 
 	var movement_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -91,6 +99,8 @@ func _unsquish():
 	unsquish_tween.tween_property(self, "scale:y", 1, .15)
 
 func _attack():
+	# Redo this with new resource style
+	return
 	if weapon:
 		var new_projectile = PROJECTILE_NODE.instantiate()
 		projectiles.add_child(new_projectile)
@@ -125,7 +135,7 @@ func auto_equip_hat(new_hat_resource: HatResource):
 
 func _equip_hat(hat_slot: int):
 	if inventory.equiped_hats_array[hat_slot]:
-		var hat_resource: HatResource = inventory.equiped_hats_array[hat_slot]
+		hat_resource = inventory.equiped_hats_array[hat_slot]
 		hat.visible = true
 		hat.texture = hat_resource.texture
 		weapon = hat_resource.weapon_resource
@@ -138,3 +148,60 @@ func _flip_sprites(movement_direction):
 		sprite.flip_h = movement_direction < 0
 	var weapon_offset = 7.0
 	weapon_sprite.offset.x = weapon_offset if movement_direction >= 0 else -weapon_offset
+
+func _ult():
+	if hat_resource:
+		if hat_resource.name == 'Witch Hat':
+			var projectile_node = PROJECTILE_NODE.instantiate()
+			projectiles.add_child(projectile_node)
+			projectile_node.global_position = global_position
+			projectile_node.set_projectile(
+				hat_resource.ultimate_ability.projectile_resource)
+			projectile_node.direction = (get_global_mouse_position() - global_position).normalized()
+			projectile_node.tree_exited.connect(_spawn_cluster_potions.bind(projectile_node))
+			_add_potion_tweener(projectile_node)
+		elif hat_resource.name == 'Fedora':
+			state = States.MOVEMENT_LOCKED
+			var movement_timer = .75 # second
+			var movement_distance = 200
+			var sword_spin_tweener = get_tree().create_tween()
+			sword_spin_tweener.tween_property(weapon_sprite, "rotation", 2*PI, movement_timer/3.0)
+			sword_spin_tweener.tween_callback(func(): weapon_sprite.rotation = 0)
+			sword_spin_tweener.set_loops(3)
+			var movement_tweener = get_tree().create_tween()
+			movement_tweener.tween_property(self, "position", 
+			global_position + (get_global_mouse_position() - global_position).normalized() * movement_distance, 
+			movement_timer)
+			movement_tweener.tween_callback(func(): state = States.IDLE)
+			
+		#var attack = hat_resource.ultimate_ability
+		#if attack is RangedAttackResource:
+			#var projectile_node = PROJECTILE_NODE.instantiate()
+			#projectiles.add_child(projectile_node)
+			#projectile_node.global_position = global_position
+			#projectile_node.set_projectile(attack.projectile_resource)
+			#projectile_node.direction = (get_global_mouse_position() - global_position).normalized()
+		#else:
+			#pass
+
+func _spawn_cluster_potions(potion: Node2D):
+	var spawn_point = potion.position
+	for direction: Vector2 in [
+			Vector2(1, 1),
+			Vector2(1, -1),
+			Vector2(-1, 1),
+			Vector2(-1, -1)
+		]:
+		direction = direction.normalized()
+		var projectile_node = PROJECTILE_NODE.instantiate()
+		projectiles.add_child(projectile_node)
+		projectile_node.global_position = spawn_point
+		projectile_node.set_projectile(
+			hat_resource.basic_attack.projectile_resource)
+		projectile_node.max_range = 50
+		projectile_node.direction = direction
+		_add_potion_tweener(projectile_node)
+
+func _add_potion_tweener(potion: Node2D):
+	var tween = get_tree().create_tween()
+	tween.tween_property(potion, "rotation", 2*PI, .7)

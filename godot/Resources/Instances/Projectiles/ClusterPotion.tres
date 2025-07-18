@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Projectile" load_steps=3 format=3 uid="uid://c2bsqxllq8jh7"]
+
+[ext_resource type="Script" uid="uid://djdkuglue8p7f" path="res://Resources/Classes/projectile.gd" id="1_o6ns1"]
+[ext_resource type="Texture2D" uid="uid://dxe7kxvs6oxgv" path="res://Assets/Weapons/cluster_potion..png" id="2_b5kli"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_o6ns1")
+speed = 250.0
+max_range = 75.0
+texture = ExtResource("2_b5kli")
+damage = 1
+poison_stacks = 1
+metadata/_custom_type_script = "uid://djdkuglue8p7f"
