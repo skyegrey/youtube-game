@@ -12,7 +12,7 @@ const PROJECTILE_NODE = preload("res://Scenes/projectile_node.tscn")
 
 # Children references
 @onready var character_sprite = $CharacterSprite
-@onready var hat = $Hat
+@onready var hat_sprite: Sprite2D = $HatSprite
 @onready var interactables_detection_area = $InteractablesDetectionArea
 @onready var npc_detection_area = $NPCDetectionArea
 @onready var weapon_sprite = $WeaponSprite
@@ -24,7 +24,6 @@ const PROJECTILE_NODE = preload("res://Scenes/projectile_node.tscn")
 # State
 @onready var state = States.IN_CUTSCENE
 @onready var npc: NPC = null
-@onready var weapon: WeaponResource
 @onready var interactable: Interactable = null
 @onready var is_vulnerable = true
 @onready var hat_resource: HatResource = null
@@ -99,14 +98,7 @@ func _unsquish():
 	unsquish_tween.tween_property(self, "scale:y", 1, .15)
 
 func _attack():
-	# Redo this with new resource style
-	return
-	if weapon:
-		var new_projectile = PROJECTILE_NODE.instantiate()
-		projectiles.add_child(new_projectile)
-		new_projectile.global_position = global_position
-		new_projectile.set_projectile(weapon.projectile)
-		new_projectile.direction = (get_global_mouse_position() - global_position).normalized()
+	pass
 
 func _hit_by_attack(attack_area: Area2D):
 	if not is_vulnerable:
@@ -136,18 +128,17 @@ func auto_equip_hat(new_hat_resource: HatResource):
 func _equip_hat(hat_slot: int):
 	if inventory.equiped_hats_array[hat_slot]:
 		hat_resource = inventory.equiped_hats_array[hat_slot]
-		hat.visible = true
-		hat.texture = hat_resource.texture
-		weapon = hat_resource.weapon_resource
-		weapon_sprite.texture = hat_resource.weapon_resource.texture
+		hat_sprite.texture = hat_resource.texture
+		weapon_sprite.texture = hat_resource.idle_weapon_texture
+		weapon_sprite.offset = hat_resource.idle_weapon_offset
 
 func _flip_sprites(movement_direction):
 	for sprite: Sprite2D in [
-		character_sprite, hat, weapon_sprite
+		character_sprite, hat_sprite, weapon_sprite
 	]:
 		sprite.flip_h = movement_direction < 0
-	var weapon_offset = 7.0
-	weapon_sprite.offset.x = weapon_offset if movement_direction >= 0 else -weapon_offset
+	weapon_sprite.offset.x = hat_resource.idle_weapon_offset.x if movement_direction >= 0 \
+	else -hat_resource.idle_weapon_offset.x
 
 func _ult():
 	if hat_resource:
@@ -173,16 +164,6 @@ func _ult():
 			global_position + (get_global_mouse_position() - global_position).normalized() * movement_distance, 
 			movement_timer)
 			movement_tweener.tween_callback(func(): state = States.IDLE)
-			
-		#var attack = hat_resource.ultimate_ability
-		#if attack is RangedAttackResource:
-			#var projectile_node = PROJECTILE_NODE.instantiate()
-			#projectiles.add_child(projectile_node)
-			#projectile_node.global_position = global_position
-			#projectile_node.set_projectile(attack.projectile_resource)
-			#projectile_node.direction = (get_global_mouse_position() - global_position).normalized()
-		#else:
-			#pass
 
 func _spawn_cluster_potions(potion: Node2D):
 	var spawn_point = potion.position

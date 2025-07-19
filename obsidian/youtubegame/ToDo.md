@@ -1,16 +1,12 @@
 
 Comment Features:
-- [ ] Add AoE attacks
-	- [ ] Add the R key functionality
-	- [ ] Update weapons to have an ult
-	- [ ] Witch hat ult
-		- [ ] Potion cluster bomb
-	- [ ] Fedora ult
-		- [ ] Circle slash
-	- [ ] Cowboy hat
-		- [ ] 6 shooter
-	- [ ] Glass shatter sfx 
-	- [ ] Rework the weapon attack function (shoulnd't always spawn a projectile)
+- [x] Add AoE attacks
+	- [x] Add the R key functionality
+	- [x] Update weapons to have an ult
+	- [x] Witch hat ult
+		- [x] Potion cluster bomb
+	- [x] Fedora ult
+		- [x] Circle slash
 - [x] Update the friendly racoon
 	- [x] Approaches you at the start of the game
 		- [x] Animate approach

@@ -5,4 +5,5 @@ class_name HatResource extends ItemResource
 @export var utility_skill: AttackResource
 @export var ultimate_ability: AttackResource
 
-@export var weapon_resource: WeaponResource
+@export var idle_weapon_texture: Texture2D
+@export var idle_weapon_offset: Vector2

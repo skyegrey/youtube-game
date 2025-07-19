@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="HatResource" load_steps=4 format=3 uid="uid://b8q3xpr1dunab"]
 
+[ext_resource type="Texture2D" uid="uid://rr4nnqstqnk6" path="res://Assets/Weapons/sword.png" id="1_ixoej"]
 [ext_resource type="Script" uid="uid://dtm6ahjsgix3j" path="res://Resources/Classes/hat_resource.gd" id="1_lwhoi"]
 [ext_resource type="Texture2D" uid="uid://ch64oes5c8guc" path="res://Assets/Items/proximity-bananas-fedora.png" id="2_lwhoi"]
-[ext_resource type="Resource" uid="uid://cqvdaidcq2sj8" path="res://Resources/Instances/Weapons/sword.tres" id="3_udfip"]
 
 [resource]
 script = ExtResource("1_lwhoi")
-weapon_resource = ExtResource("3_udfip")
+idle_weapon_texture = ExtResource("1_ixoej")
 name = "Fedora"
 texture = ExtResource("2_lwhoi")

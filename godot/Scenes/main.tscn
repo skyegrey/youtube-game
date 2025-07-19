@@ -15,13 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://bq5eo010b34jk" path="res://Assets/character-sprite.png" id="10_d1ilt"]
 [ext_resource type="Script" uid="uid://8t2ov3uv7484" path="res://Scenes/objective_control.gd" id="13_3pmx8"]
 [ext_resource type="Texture2D" uid="uid://c4r6g1gvf8nhq" path="res://Assets/UI/coin-icon.png" id="13_hibaj"]
-[ext_resource type="Script" path="res://Scripts/money_display.gd" id="13_pdsj5"]
+[ext_resource type="Script" uid="uid://y1d8etq35e43" path="res://Scripts/money_display.gd" id="13_pdsj5"]
 [ext_resource type="Texture2D" uid="uid://clxcob1i5hqj8" path="res://Assets/Items/witch-hat.png" id="15_ee4r6"]
-[ext_resource type="Script" path="res://Scripts/new_item_display.gd" id="15_gt3je"]
+[ext_resource type="Script" uid="uid://cpsrhkhk5nw0p" path="res://Scripts/new_item_display.gd" id="15_gt3je"]
 [ext_resource type="Script" uid="uid://437xjgu7fnhi" path="res://Scenes/player_condition.gd" id="16_cbgmd"]
 [ext_resource type="Texture2D" uid="uid://b8wya8kbqosej" path="res://Assets/UI/character-status.png" id="16_u50mg"]
 [ext_resource type="Script" uid="uid://drn764q21o03q" path="res://Scripts/boss_info_controll.gd" id="17_h1bgf"]
-[ext_resource type="Script" path="res://Scenes/hats_control.gd" id="23_3pmx8"]
+[ext_resource type="Script" uid="uid://baj5n8f7c2hrr" path="res://Scenes/hats_control.gd" id="23_3pmx8"]
 [ext_resource type="Texture2D" uid="uid://c8rdqdkg7ulvt" path="res://Assets/Status/poison.png" id="23_gt3je"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
@@ -314,7 +314,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("10_d1ilt")
 metadata/_edit_lock_ = true
 
-[node name="Hat" type="Sprite2D" parent="PlayerCharacter"]
+[node name="HatSprite" type="Sprite2D" parent="PlayerCharacter"]
 scale = Vector2(4, 4)
 offset = Vector2(0, -3)
 
