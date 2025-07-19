@@ -7,6 +7,5 @@
 [resource]
 script = ExtResource("1_lwhoi")
 weapon_resource = ExtResource("3_udfip")
-name = "ProximityBananas Fedora"
+name = "Fedora"
 texture = ExtResource("2_lwhoi")
-metadata/_custom_type_script = "uid://dixx145feywd7"

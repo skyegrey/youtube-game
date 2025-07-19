@@ -1,6 +1,6 @@
 class_name CharacterNode extends Node2D
 
-enum States {IDLE, MOVING, STUNNED, IN_CUTSCENE}
+enum States {IDLE, MOVING, STUNNED, IN_CUTSCENE, MOVEMENT_LOCKED}
 
 # Properties
 @export var max_hp: int = 10

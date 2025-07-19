@@ -1,11 +1,6 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://c6ybr4f0xa5g5"]
+[gd_resource type="Resource" script_class="RangedAttackResource" load_steps=2 format=3 uid="uid://c6ybr4f0xa5g5"]
 
-[ext_resource type="Script" uid="uid://cbykd7cin8lvt" path="res://Resources/Classes/weapon.gd" id="1_n86am"]
-[ext_resource type="Resource" uid="uid://ck7rte1blg6kj" path="res://Resources/Instances/Projectiles/Bullet.tres" id="1_p36ko"]
-[ext_resource type="Texture2D" uid="uid://61av7ffwyply" path="res://Assets/Weapons/gun.png" id="2_ogjq7"]
+[ext_resource type="Script" uid="uid://dxyh0vo2lrfjg" path="res://Resources/Classes/ranged_attack_resource.gd" id="1_n86am"]
 
 [resource]
 script = ExtResource("1_n86am")
-texture = ExtResource("2_ogjq7")
-projectile = ExtResource("1_p36ko")
-metadata/_custom_type_script = "uid://cbykd7cin8lvt"

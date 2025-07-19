@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MeleeAttackResource" load_steps=2 format=3 uid="uid://dyfusfvlfrp4f"]
+
+[ext_resource type="Script" uid="uid://dtavcgrpsprtk" path="res://Resources/Classes/melee_attack_resource.gd" id="1_fk12u"]
+
+[resource]
+script = ExtResource("1_fk12u")
+metadata/_custom_type_script = "uid://dtavcgrpsprtk"

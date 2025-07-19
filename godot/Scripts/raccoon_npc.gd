@@ -1,9 +1,9 @@
 class_name NPC extends Node2D
 
 # Prefabs
-const PROXIMITY_BANANAS_FEDORA: HatResource = \
-	preload("res://Resources/Instances/Helms/proximity-bananas-fedora.tres")
-
+const WITCH_HAT = preload("res://Resources/Instances/Hats/witch-hat.tres")
+const FEDORA = preload("res://Resources/Instances/Hats/Fedora.tres")
+const COWBOY_HAT = preload("res://Resources/Instances/Hats/CowboyHat.tres")
 # Scene Refs
 @onready var player_character = %PlayerCharacter
 @onready var inventory = %Inventory
@@ -35,7 +35,7 @@ const PROXIMITY_BANANAS_FEDORA: HatResource = \
 ]
 @onready var current_dialouge_index: int = 0
 @onready var dialouge_index_to_event: Dictionary = {
-	3: func(): player_character.auto_equip_hat(PROXIMITY_BANANAS_FEDORA)
+	3: func(): player_character.auto_equip_hat(COWBOY_HAT)
 }
 
 # Signals
@@ -44,6 +44,7 @@ signal dialouge_finished
 func _ready():
 	interactable_area.area_entered.connect(_display_interact_key)
 	interactable_area.area_exited.connect(_hide_interact_key)
+	var with_hat_resource = WITCH_HAT
 	_approach_player()
 
 func _display_interact_key(area: Area2D):
