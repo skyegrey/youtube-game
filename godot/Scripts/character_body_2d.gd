@@ -142,6 +142,8 @@ func _flip_sprites(movement_direction):
 
 func _ult():
 	if hat_resource:
+		hat_resource.ultimate_ability.use(self, projectiles)
+	if hat_resource:
 		if hat_resource.name == 'Witch Hat':
 			var projectile_node = PROJECTILE_NODE.instantiate()
 			projectiles.add_child(projectile_node)

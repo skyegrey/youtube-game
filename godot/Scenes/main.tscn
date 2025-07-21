@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://c7pwekakxgqp0"]
+[gd_scene load_steps=53 format=4 uid="uid://c7pwekakxgqp0"]
 
 [ext_resource type="Script" uid="uid://cm6f7nmyhwfx2" path="res://Scripts/inventory.gd" id="1_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://cq0t33cutoal2" path="res://Assets/Sprite-0001.png" id="1_jjvhh"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bqj3ryl6tvutp" path="res://Scripts/ui.gd" id="5_344ge"]
 [ext_resource type="Texture2D" uid="uid://bgkv2ibpodqlb" path="res://Assets/UI/grey_panel.png" id="5_kry3j"]
 [ext_resource type="AudioStream" uid="uid://bkk6r8swua1dq" path="res://Assets/sfx/UI Button 1.mp3" id="6_jkdf5"]
+[ext_resource type="Script" uid="uid://d0lwp4wi6feru" path="res://Scenes/projectiles.gd" id="10_3pmx8"]
 [ext_resource type="Texture2D" uid="uid://bq5eo010b34jk" path="res://Assets/character-sprite.png" id="10_d1ilt"]
 [ext_resource type="Script" uid="uid://8t2ov3uv7484" path="res://Scenes/objective_control.gd" id="13_3pmx8"]
 [ext_resource type="Texture2D" uid="uid://c4r6g1gvf8nhq" path="res://Assets/UI/coin-icon.png" id="13_hibaj"]
@@ -303,6 +304,7 @@ stream = SubResource("AudioStreamRandomizer_wsu2k")
 
 [node name="Projectiles" type="Node2D" parent="."]
 unique_name_in_owner = true
+script = ExtResource("10_3pmx8")
 
 [node name="PlayerCharacter" type="Node2D" parent="."]
 unique_name_in_owner = true

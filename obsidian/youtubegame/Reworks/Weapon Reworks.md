@@ -1,2 +1,2 @@
-- [ ] Set weapons to have idle textures
-- [ ] On equip, set weapon texture & offset
+- [x] Set weapons to have idle textures
+- [x] On equip, set weapon texture & offset

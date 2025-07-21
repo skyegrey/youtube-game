@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="RangedAttackResource" load_steps=3 format=3 uid="uid://cwscwisj1aqib"]
-
-[ext_resource type="Script" uid="uid://dxyh0vo2lrfjg" path="res://Resources/Classes/ranged_attack_resource.gd" id="1_4bpxg"]
-[ext_resource type="Resource" uid="uid://ck7rte1blg6kj" path="res://Resources/Instances/Projectiles/Bullet.tres" id="1_gmvyj"]
-
-[resource]
-script = ExtResource("1_4bpxg")
-projectile_resource = ExtResource("1_gmvyj")
-metadata/_custom_type_script = "uid://dxyh0vo2lrfjg"
